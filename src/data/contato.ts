@@ -43,7 +43,8 @@ export const contatoData = {
       city: "Maracanã — Jarinu/SP",
       zip: "CEP: 13246-102"
     },
-    mapText: "Sede própria em localização estratégica para atender SP, Sul de MG e divisa RJ."
+    mapText: "Sede própria em localização estratégica para atender SP, Sul de MG e divisa RJ.",
+    mapUrl: "https://maps.google.com/?q=R.+Benedito+Higino+Machado,+79,+Jarinu,+SP"
   },
   security: {
     title: "Seu equipamento em boas mãos",

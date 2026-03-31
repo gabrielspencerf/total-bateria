@@ -1,0 +1,18 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#09090B"/>
+  <path d="M0 740L320 540L640 680L960 460L1280 620L1600 420V900H0V740Z" fill="#18181B"/>
+  <path d="M0 820L300 650L620 760L940 590L1260 740L1600 560V900H0V820Z" fill="#27272A"/>
+  <circle cx="1260" cy="180" r="180" fill="#B91C1C" fill-opacity="0.35"/>
+  <circle cx="240" cy="160" r="120" fill="#DC2626" fill-opacity="0.2"/>
+  <rect x="180" y="250" width="1240" height="380" rx="24" fill="#111827" fill-opacity="0.62" stroke="#3F3F46"/>
+  <text x="240" y="380" fill="#FAFAFA" font-family="Arial, sans-serif" font-size="62" font-weight="700">
+    Total Bateria
+  </text>
+  <text x="240" y="450" fill="#D4D4D8" font-family="Arial, sans-serif" font-size="32">
+    Solucoes para operacoes que nao podem parar
+  </text>
+  <rect x="240" y="500" width="320" height="56" rx="10" fill="#DC2626"/>
+  <text x="278" y="536" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24" font-weight="600">
+    Atendimento B2B
+  </text>
+</svg>

@@ -2,6 +2,7 @@ import { useSEO } from "../../hooks/useSEO";
 import { PageTransition } from "../../components/layout/PageTransition";
 import { Breadcrumb } from "../../components/ui/Breadcrumb";
 import { CTASection } from "../../components/ui/CTASection";
+import { ServiceMediaShowcase } from "../../components/ui/ServiceMediaShowcase";
 import { servicosData } from "../../data/servicos";
 import { CheckCircle2, ShieldAlert, BookOpen, TrendingUp } from "lucide-react";
 
@@ -31,6 +32,8 @@ export function Treinamentos() {
           </div>
         </div>
       </div>
+
+      <ServiceMediaShowcase serviceKey="treinamentos" />
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

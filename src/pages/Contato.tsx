@@ -52,6 +52,26 @@ export function Contato() {
 
             {/* Info Column */}
             <div className="lg:w-1/3 space-y-12">
+              <FadeIn direction="right">
+                <div className="space-y-4">
+                  <img
+                    src="/assets/media/images/contato/contato-equipe-atendimento-01.webp"
+                    alt="Equipe de atendimento técnico da Total Bateria"
+                    className="w-full h-48 object-cover rounded-xl border border-zinc-200"
+                    loading="lazy"
+                  />
+                  <video
+                    className="w-full h-48 object-cover rounded-xl border border-zinc-200"
+                    controls
+                    preload="metadata"
+                    poster="/assets/media/posters/reels/institucional-ambiente-loop-01.jpg"
+                  >
+                    <source src="/assets/media/videos/reels/institucional-ambiente-loop-01.mp4" type="video/mp4" />
+                    Seu navegador não suporta vídeo em HTML5.
+                  </video>
+                </div>
+              </FadeIn>
+
               {/* WhatsApp Block */}
               <FadeIn direction="right" delay={0.1}>
                 <div className="bg-zinc-50 p-8 rounded-xl border border-zinc-200">
@@ -122,19 +142,20 @@ export function Contato() {
 
       {/* Map Section */}
       <FadeIn direction="up">
-        <section className="h-[400px] w-full relative">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.708899882903!2d-46.7262016!3d-23.0116667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ceb70000000001%3A0x1234567890abcdef!2sJarinu%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Mapa de localização Total Bateria"
-          ></iframe>
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white px-6 py-3 rounded-full shadow-lg border border-zinc-200 text-sm font-medium text-zinc-800 whitespace-nowrap">
-            {contatoData.contactInfo.mapText}
+        <section className="w-full bg-zinc-100 border-y border-zinc-200">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div className="rounded-2xl bg-white border border-zinc-200 p-8 md:p-12 shadow-sm">
+              <h2 className="text-2xl md:text-3xl font-bold text-zinc-900 mb-4">Como chegar</h2>
+              <p className="text-zinc-600 mb-6">{contatoData.contactInfo.mapText}</p>
+              <a
+                href={contatoData.contactInfo.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center rounded-md bg-zinc-900 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-800 transition-colors"
+              >
+                Abrir rota no Google Maps
+              </a>
+            </div>
           </div>
         </section>
       </FadeIn>

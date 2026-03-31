@@ -2,7 +2,6 @@ import { useSEO } from "../hooks/useSEO";
 import { PageTransition } from "../components/layout/PageTransition";
 import { HeroSection } from "../components/ui/HeroSection";
 import { SectionHeading } from "../components/ui/SectionHeading";
-import { ServiceCard } from "../components/ui/ServiceCard";
 import { TestimonialCard } from "../components/ui/TestimonialCard";
 import { CTASection } from "../components/ui/CTASection";
 import { Button } from "../components/ui/Button";
@@ -11,6 +10,9 @@ import { CheckCircle2, Battery, BatteryCharging, Truck, Wrench, ShieldCheck, Set
 import { homeData } from "../data/home";
 import { casesData } from "../data/cases";
 import { FadeIn } from "../components/ui/FadeIn";
+import { ServicesCarousel } from "../components/ui/ServicesCarousel";
+import { CoverageSection } from "../components/ui/CoverageSection";
+import { HomeSegmentsSection } from "../components/ui/HomeSegmentsSection";
 
 export function Home() {
   useSEO({
@@ -27,6 +29,66 @@ export function Home() {
     "treinamentos-e-seguranca": <ShieldCheck className="w-6 h-6" />
   };
 
+  const carouselServices = [
+    {
+      id: "baterias-tracionarias",
+      title: "Baterias Tracionárias",
+      description: "Manutenção, reforma, venda e carregadores com suporte técnico de campo.",
+      link: "/servicos/baterias-tracionarias",
+      mediaType: "video" as const,
+      mediaSrc: "/assets/media/videos/home/home-bateria-inspecao-tecnica-03.mp4",
+      poster: "/assets/media/posters/home-bateria-inspecao-tecnica-03.jpg",
+      icon: serviceIcons["baterias-tracionarias"],
+    },
+    {
+      id: "baterias-de-litio",
+      title: "Baterias de Lítio",
+      description: "Mais autonomia e recarga rápida para operações de alta exigência logística.",
+      link: "/servicos/baterias-de-litio",
+      mediaType: "video" as const,
+      mediaSrc: "/assets/media/videos/home/home-bateria-analise-celulas-02.mp4",
+      poster: "/assets/media/posters/home-bateria-analise-celulas-02.jpg",
+      icon: serviceIcons["baterias-de-litio"],
+    },
+    {
+      id: "empilhadeiras",
+      title: "Empilhadeiras",
+      description: "Assistência, manutenção e reforma para garantir produtividade e segurança.",
+      link: "/servicos/empilhadeiras",
+      mediaType: "image" as const,
+      mediaSrc: "/assets/media/images/cases/cases-operacao-empilhadeira-bateria-01.webp",
+      icon: serviceIcons.empilhadeiras,
+    },
+    {
+      id: "locacao-de-equipamentos",
+      title: "Locação de Equipamentos",
+      description: "Modelo flexível de locação com suporte e disponibilidade para sua operação.",
+      link: "/servicos/locacao-de-equipamentos",
+      mediaType: "image" as const,
+      mediaSrc: "/assets/media/images/sobre/sobre-estrutura-interna-02.webp",
+      icon: serviceIcons["locacao-de-equipamentos"],
+    },
+    {
+      id: "pecas-e-acessorios",
+      title: "Peças e Acessórios",
+      description: "Componentes com qualidade e pronta entrega para reduzir indisponibilidade.",
+      link: "/servicos/pecas-e-acessorios",
+      mediaType: "image" as const,
+      mediaSrc: "/assets/media/images/sobre/sobre-laboratorio-baterias-01.webp",
+      icon: serviceIcons["pecas-e-acessorios"],
+    },
+    {
+      id: "treinamentos-e-seguranca",
+      title: "Treinamentos e Segurança",
+      description: "Capacitação prática para equipe operar com segurança e melhor desempenho.",
+      link: "/servicos/treinamentos-e-seguranca",
+      mediaType: "video" as const,
+      mediaSrc: "/assets/media/videos/reels/institucional-ambiente-loop-01.mp4",
+      poster: "/assets/media/posters/reels/institucional-ambiente-loop-01.jpg",
+      icon: serviceIcons["treinamentos-e-seguranca"],
+    },
+  ];
+
   return (
     <PageTransition>
       <HeroSection 
@@ -34,6 +96,7 @@ export function Home() {
         subtitle={homeData.hero.subtitle}
         ctaText={homeData.hero.cta}
         badges={homeData.hero.badges}
+        backgroundImage="/assets/media/images/gallery/gallery-drone-fachada-02.webp"
       />
 
       {/* Prova rápida de autoridade */}
@@ -48,29 +111,57 @@ export function Home() {
         </div>
       </section>
 
+      <section className="py-20 bg-white border-b border-zinc-200">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <FadeIn direction="left">
+              <video
+                className="w-full h-full max-h-[420px] object-cover rounded-2xl border border-zinc-200 shadow-sm"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster="/assets/media/posters/reels/drone-aereo-loop-01.jpg"
+              >
+                <source src="/assets/media/videos/reels/drone-aereo-loop-01.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo em HTML5.
+              </video>
+            </FadeIn>
+            <FadeIn direction="right" delay={0.1}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <img
+                  src="/assets/media/images/home/home-bateria-bancada-tecnica-01.webp"
+                  alt="Bancada técnica de diagnóstico de baterias"
+                  className="w-full h-48 sm:h-56 object-cover rounded-xl border border-zinc-200"
+                  loading="lazy"
+                />
+                <img
+                  src="/assets/media/images/home/home-bateria-bancada-tecnica-02.webp"
+                  alt="Procedimento técnico em baterias tracionárias"
+                  className="w-full h-48 sm:h-56 object-cover rounded-xl border border-zinc-200"
+                  loading="lazy"
+                />
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* Nossos serviços */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-zinc-50 border-y border-zinc-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn direction="up">
             <SectionHeading 
               title="Nossos Serviços" 
-              subtitle="Soluções completas para manter sua operação rodando."
+              subtitle="Carrossel de soluções para entender rapidamente como atendemos cada demanda operacional."
               centered
             />
           </FadeIn>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {homeData.services.map((service, index) => (
-              <FadeIn key={service.id} delay={index * 0.1} direction="up">
-                <ServiceCard 
-                  title={service.title}
-                  description={service.shortDescription}
-                  link={service.slug}
-                  icon={serviceIcons[service.id]}
-                />
-              </FadeIn>
-            ))}
-          </div>
+
+          <FadeIn direction="up" delay={0.1}>
+            <ServicesCarousel services={carouselServices} />
+          </FadeIn>
           
           <FadeIn direction="up" delay={0.4}>
             <div className="text-center">
@@ -82,14 +173,14 @@ export function Home() {
         </div>
       </section>
 
-      {/* Diferenciais */}
+      {/* Diferenciais + Cases e Clientes */}
       <section className="py-24 bg-zinc-900 text-white overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            <div className="lg:w-1/2">
+          <div className="grid grid-cols-1 xl:grid-cols-[1.1fr_1fr] gap-12 items-start">
+            <div>
               <FadeIn direction="left">
                 <SectionHeading 
-                  title={homeData.differentials.title}
+                  title="Diferenciais, cases e confiança no mesmo bloco"
                   light
                   className="mb-8"
                 />
@@ -102,22 +193,36 @@ export function Home() {
                   ))}
                 </ul>
                 <div className="mt-10">
-                  <Link to="/diferenciais">
-                    <Button variant="primary" size="lg">Conheça nossos diferenciais</Button>
+                  <Link to="/cases-e-clientes">
+                    <Button variant="primary" size="lg">Ver cases e clientes</Button>
                   </Link>
                 </div>
               </FadeIn>
             </div>
-            <div className="lg:w-1/2 w-full">
-              <FadeIn direction="right" delay={0.2}>
-                <div className="aspect-square md:aspect-video lg:aspect-square bg-zinc-800 rounded-2xl overflow-hidden relative group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" 
-                    alt="Técnico realizando manutenção" 
-                    className="w-full h-full object-cover opacity-80 mix-blend-luminosity group-hover:scale-105 transition-transform duration-700"
-                    referrerPolicy="no-referrer"
+
+            <div className="space-y-4">
+              {casesData.testimonials.slice(0, 2).map((testimonial, index) => (
+                <FadeIn key={index} delay={index * 0.1} direction="right">
+                  <TestimonialCard
+                    role={testimonial.role}
+                    text={testimonial.text}
+                    rating={testimonial.rating}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent" />
+                </FadeIn>
+              ))}
+              <FadeIn direction="right" delay={0.2}>
+                <div className="rounded-2xl overflow-hidden border border-zinc-700">
+                  <video
+                    className="w-full h-64 object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    poster="/assets/media/posters/reels/operacao-tecnica-loop-01.jpg"
+                  >
+                    <source src="/assets/media/videos/reels/operacao-tecnica-loop-01.mp4" type="video/mp4" />
+                  </video>
                 </div>
               </FadeIn>
             </div>
@@ -125,54 +230,31 @@ export function Home() {
         </div>
       </section>
 
-      {/* Segmentos atendidos */}
-      <section className="py-24 bg-zinc-50">
+      <HomeSegmentsSection />
+
+      <FadeIn direction="up">
+        <CoverageSection />
+      </FadeIn>
+
+      <section className="py-16 bg-zinc-100 border-y border-zinc-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn direction="up">
-            <SectionHeading 
-              title={homeData.segments.title}
-              subtitle={homeData.segments.text}
-              centered
-            />
-          </FadeIn>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8 mt-12">
-            {homeData.segments.items.map((item, index) => (
-              <FadeIn key={index} delay={index * 0.05} direction="up">
-                <div className="bg-white p-6 rounded-xl border border-zinc-200 text-center shadow-sm hover:shadow-md transition-shadow flex items-center justify-center min-h-[120px] h-full group">
-                  <span className="font-bold text-zinc-900 group-hover:text-red-600 transition-colors">{item}</span>
-                </div>
-              </FadeIn>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div className="rounded-xl bg-white border border-zinc-200 p-5">
+              <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Tempo de resposta</p>
+              <p className="text-2xl font-bold text-zinc-900">Atendimento ágil</p>
+            </div>
+            <div className="rounded-xl bg-white border border-zinc-200 p-5">
+              <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Cobertura técnica</p>
+              <p className="text-2xl font-bold text-zinc-900">SP, Sul de MG e divisa RJ</p>
+            </div>
+            <div className="rounded-xl bg-white border border-zinc-200 p-5">
+              <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Estrutura</p>
+              <p className="text-2xl font-bold text-zinc-900">Sede e frota próprias</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Depoimentos */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn direction="up">
-            <SectionHeading 
-              title="Quem confia na Total Bateria"
-              centered
-            />
-          </FadeIn>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            {casesData.testimonials.slice(0, 3).map((testimonial, index) => (
-              <FadeIn key={index} delay={index * 0.1} direction="up">
-                <TestimonialCard 
-                  role={testimonial.role}
-                  text={testimonial.text}
-                  rating={testimonial.rating}
-                />
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Final */}
       <FadeIn direction="up">
         <CTASection 
           title={homeData.ctaFinal.title}

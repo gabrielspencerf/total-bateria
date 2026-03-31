@@ -2,6 +2,7 @@ import { useSEO } from "../../hooks/useSEO";
 import { PageTransition } from "../../components/layout/PageTransition";
 import { Breadcrumb } from "../../components/ui/Breadcrumb";
 import { CTASection } from "../../components/ui/CTASection";
+import { ServiceMediaShowcase } from "../../components/ui/ServiceMediaShowcase";
 import { servicosData } from "../../data/servicos";
 import { CheckCircle2, Settings, ShieldCheck } from "lucide-react";
 
@@ -31,6 +32,8 @@ export function Pecas() {
           </div>
         </div>
       </div>
+
+      <ServiceMediaShowcase serviceKey="pecas" />
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

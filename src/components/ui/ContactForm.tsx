@@ -2,35 +2,57 @@ import { useState } from "react";
 import { Button } from "./Button";
 import { contatoData } from "../../data/contato";
 
+interface ContactFormPayload {
+  empresa: string;
+  cnpj: string;
+  nome: string;
+  cargo: string;
+  email: string;
+  whatsapp: string;
+  servico: string;
+  urgencia: string;
+  quantidade: string;
+  marca: string;
+  cidade: string;
+  mensagem: string;
+}
+
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const parseField = (formData: FormData, field: keyof ContactFormPayload) => {
+    const value = formData.get(field);
+    return typeof value === "string" ? value.trim() : "";
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+    setSubmitError(null);
+
     const formData = new FormData(e.currentTarget);
-    const data = {
-      empresa: formData.get('empresa'),
-      cnpj: formData.get('cnpj'),
-      nome: formData.get('nome'),
-      cargo: formData.get('cargo'),
-      email: formData.get('email'),
-      whatsapp: formData.get('whatsapp'),
-      servico: formData.get('servico'),
-      urgencia: formData.get('urgencia'),
-      quantidade: formData.get('quantidade'),
-      marca: formData.get('marca'),
-      cidade: formData.get('cidade'),
-      mensagem: formData.get('mensagem'),
+    const data: ContactFormPayload = {
+      empresa: parseField(formData, "empresa"),
+      cnpj: parseField(formData, "cnpj"),
+      nome: parseField(formData, "nome"),
+      cargo: parseField(formData, "cargo"),
+      email: parseField(formData, "email"),
+      whatsapp: parseField(formData, "whatsapp"),
+      servico: parseField(formData, "servico"),
+      urgencia: parseField(formData, "urgencia"),
+      quantidade: parseField(formData, "quantidade"),
+      marca: parseField(formData, "marca"),
+      cidade: parseField(formData, "cidade"),
+      mensagem: parseField(formData, "mensagem"),
     };
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
@@ -38,11 +60,12 @@ export function ContactForm() {
       if (response.ok) {
         setSubmitted(true);
       } else {
-        console.error('Failed to submit form');
-        // Handle error state here if needed
+        const payload = (await response.json().catch(() => null)) as { message?: string } | null;
+        setSubmitError(payload?.message ?? "Não foi possível enviar sua solicitação agora. Tente novamente.");
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error("Erro ao enviar formulário:", error);
+      setSubmitError("Falha de conexão. Verifique sua internet e tente novamente.");
     } finally {
       setIsSubmitting(false);
     }
@@ -79,6 +102,12 @@ export function ContactForm() {
       </div>
       
       <form onSubmit={handleSubmit} className="p-8 space-y-6">
+        {submitError && (
+          <div role="alert" className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+            {submitError}
+          </div>
+        )}
+
         <div className="space-y-4">
           <h4 className="text-lg font-semibold text-zinc-900 border-b pb-2">Informações da empresa</h4>
           

@@ -1,0 +1,14 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#09090B"/>
+  <circle cx="980" cy="140" r="180" fill="#DC2626" fill-opacity="0.3"/>
+  <rect x="80" y="90" width="760" height="450" rx="24" fill="#18181B" stroke="#3F3F46"/>
+  <text x="140" y="240" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="62" font-weight="700">
+    Total Bateria
+  </text>
+  <text x="140" y="312" fill="#D4D4D8" font-family="Arial, sans-serif" font-size="34">
+    Solucoes em baterias e empilhadeiras
+  </text>
+  <text x="140" y="370" fill="#A1A1AA" font-family="Arial, sans-serif" font-size="28">
+    Atendimento corporativo com foco operacional
+  </text>
+</svg>
