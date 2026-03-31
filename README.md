@@ -1,20 +1,37 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Total Bateria - Site Institucional
 
-# Run and deploy your AI Studio app
+Aplicacao multipage institucional com foco B2B para captacao de demanda comercial.
 
-This contains everything you need to run your app locally.
+## Stack
 
-View your app in AI Studio: https://ai.studio/apps/68177291-ce8c-4cc8-813c-9977984beb70
+- React + TypeScript + Vite
+- Tailwind CSS
+- Express
 
-## Run Locally
+## Como rodar localmente
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
+1. Instale dependencias:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
+2. Suba o ambiente de desenvolvimento:
    `npm run dev`
+
+Aplicacao disponivel em `http://localhost:3000`.
+
+## Scripts
+
+- `npm run dev`: sobe Express + Vite em modo desenvolvimento
+- `npm run build`: gera build de producao do frontend
+- `npm run preview`: abre preview do build estatico
+- `npm run start`: sobe servidor em modo runtime
+- `npm run lint`: validacao TypeScript
+- `npm run clean`: remove pasta `dist`
+
+## Documentacao viva
+
+Consulte a pasta `docs/` para:
+
+- estrutura atual
+- escopo
+- historico de atualizacoes
+- logs de erro em desenvolvimento
+- base de design system

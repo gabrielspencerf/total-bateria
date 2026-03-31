@@ -48,6 +48,40 @@ export function Cases() {
         </div>
       </section>
 
+      <section className="py-16 bg-white border-b border-zinc-200">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <FadeIn direction="up">
+              <video
+                className="w-full h-64 lg:h-full object-cover rounded-xl border border-zinc-200"
+                controls
+                preload="metadata"
+                poster="/assets/media/posters/reels/operacao-tecnica-loop-01.jpg"
+              >
+                <source src="/assets/media/videos/reels/operacao-tecnica-loop-01.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo em HTML5.
+              </video>
+            </FadeIn>
+            <FadeIn direction="up" delay={0.1}>
+              <img
+                src="/assets/media/images/cases/cases-operacao-empilhadeira-bateria-01.webp"
+                alt="Operação logística com movimentação de baterias"
+                className="w-full h-64 object-cover rounded-xl border border-zinc-200"
+                loading="lazy"
+              />
+            </FadeIn>
+            <FadeIn direction="up" delay={0.2}>
+              <img
+                src="/assets/media/images/cases/cases-manutencao-celulas-02.webp"
+                alt="Manutenção de células de bateria em bancada"
+                className="w-full h-64 object-cover rounded-xl border border-zinc-200"
+                loading="lazy"
+              />
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* Cases de Sucesso */}
       <section className="py-24 bg-zinc-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

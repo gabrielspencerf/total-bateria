@@ -1,0 +1,16 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#F4F4F5"/>
+  <path d="M140 230L300 140L480 210L570 120L760 170L930 130L1040 260L980 420L1060 560L930 700L700 760L510 700L350 740L180 640L120 470L160 340L140 230Z" fill="#E4E4E7" stroke="#A1A1AA" stroke-width="4"/>
+  <circle cx="520" cy="420" r="22" fill="#DC2626"/>
+  <circle cx="520" cy="420" r="48" fill="#DC2626" fill-opacity="0.2"/>
+  <circle cx="370" cy="470" r="12" fill="#52525B"/>
+  <circle cx="650" cy="500" r="12" fill="#52525B"/>
+  <circle cx="460" cy="610" r="12" fill="#52525B"/>
+  <circle cx="760" cy="350" r="12" fill="#52525B"/>
+  <path d="M520 420L650 500L760 350" stroke="#71717A" stroke-width="4" stroke-dasharray="8 8"/>
+  <path d="M520 420L460 610L370 470" stroke="#71717A" stroke-width="4" stroke-dasharray="8 8"/>
+  <rect x="120" y="740" width="960" height="92" rx="16" fill="#111827"/>
+  <text x="170" y="795" fill="#F9FAFB" font-family="Arial, sans-serif" font-size="30" font-weight="700">
+    Cobertura operacional: SP, Sul de MG e divisa RJ
+  </text>
+</svg>

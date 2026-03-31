@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, MapPin, Phone, Linkedin, Instagram, Facebook, ArrowRight, ChevronRight } from "lucide-react";
 import { Button } from "../ui/Button";
+import { SITE_CONFIG } from "../../../config/site";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -22,7 +23,11 @@ export function Footer() {
             <div className="mb-8">
               <h5 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Assine nossa Newsletter</h5>
               <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
+                <label htmlFor="newsletter-email" className="sr-only">
+                  E-mail para newsletter
+                </label>
                 <input 
+                  id="newsletter-email"
                   type="email" 
                   placeholder="Seu e-mail corporativo" 
                   className="bg-zinc-900 border border-zinc-800 text-white px-4 py-2 rounded-md w-full focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
@@ -34,13 +39,25 @@ export function Footer() {
             </div>
 
             <div className="flex items-center space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-red-600 hover:text-white transition-all duration-300 hover:-translate-y-1">
+              <a
+                href={SITE_CONFIG.baseUrl}
+                className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-red-600 hover:text-white transition-all duration-300 hover:-translate-y-1"
+                aria-label="LinkedIn da Total Bateria"
+              >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-red-600 hover:text-white transition-all duration-300 hover:-translate-y-1">
+              <a
+                href={SITE_CONFIG.baseUrl}
+                className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-red-600 hover:text-white transition-all duration-300 hover:-translate-y-1"
+                aria-label="Instagram da Total Bateria"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-red-600 hover:text-white transition-all duration-300 hover:-translate-y-1">
+              <a
+                href={SITE_CONFIG.baseUrl}
+                className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-red-600 hover:text-white transition-all duration-300 hover:-translate-y-1"
+                aria-label="Facebook da Total Bateria"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -67,6 +84,7 @@ export function Footer() {
               <li><Link to="/servicos/empilhadeiras" className="text-zinc-400 hover:text-red-500 transition-colors flex items-center group"><ChevronRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity text-red-500" /> Empilhadeiras</Link></li>
               <li><Link to="/servicos/locacao-de-equipamentos" className="text-zinc-400 hover:text-red-500 transition-colors flex items-center group"><ChevronRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity text-red-500" /> Locação de Equipamentos</Link></li>
               <li><Link to="/servicos/pecas-e-acessorios" className="text-zinc-400 hover:text-red-500 transition-colors flex items-center group"><ChevronRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity text-red-500" /> Peças e Acessórios</Link></li>
+              <li><Link to="/servicos/treinamentos-e-seguranca" className="text-zinc-400 hover:text-red-500 transition-colors flex items-center group"><ChevronRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity text-red-500" /> Treinamentos e Segurança</Link></li>
             </ul>
           </div>
 
@@ -105,8 +123,8 @@ export function Footer() {
             <span className="text-sm text-zinc-500">CNPJ: 00.000.000/0001-00</span>
           </div>
           <div className="flex space-x-6 text-sm text-zinc-500">
-            <Link to="#" className="hover:text-white transition-colors">Política de Privacidade</Link>
-            <Link to="#" className="hover:text-white transition-colors">Termos de Uso</Link>
+            <Link to="/politica-de-privacidade" className="hover:text-white transition-colors">Política de Privacidade</Link>
+            <Link to="/termos-de-uso" className="hover:text-white transition-colors">Termos de Uso</Link>
           </div>
         </div>
       </div>

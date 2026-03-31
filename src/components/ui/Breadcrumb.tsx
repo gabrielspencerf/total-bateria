@@ -27,7 +27,10 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
               <div className="flex items-center">
                 <ChevronRight className="w-4 h-4 text-zinc-400 mx-1" />
                 {isLast || !item.path ? (
-                  <span className="text-zinc-900 font-medium ml-1 md:ml-2" aria-current="page">
+                  <span
+                    className="text-zinc-900 font-medium ml-1 md:ml-2"
+                    aria-current={isLast ? "page" : undefined}
+                  >
                     {item.label}
                   </span>
                 ) : (

@@ -82,9 +82,42 @@ export function Sobre() {
                     </ul>
                   </div>
                 </FadeIn>
+
+                <FadeIn direction="right" delay={0.4}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <img
+                      src="/assets/media/images/sobre/sobre-laboratorio-baterias-01.webp"
+                      alt="Laboratório técnico de baterias da Total Bateria"
+                      className="w-full h-48 object-cover rounded-xl border border-zinc-200"
+                      loading="lazy"
+                    />
+                    <img
+                      src="/assets/media/images/sobre/sobre-estrutura-interna-04.webp"
+                      alt="Estrutura interna da empresa"
+                      className="w-full h-48 object-cover rounded-xl border border-zinc-200"
+                      loading="lazy"
+                    />
+                  </div>
+                </FadeIn>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-zinc-50 border-y border-zinc-200">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn direction="up">
+            <video
+              className="w-full max-h-[460px] object-cover rounded-2xl border border-zinc-200 shadow-sm"
+              controls
+              preload="metadata"
+              poster="/assets/media/posters/sobre-solda-reparo-estrutura-01.jpg"
+            >
+              <source src="/assets/media/videos/sobre/sobre-solda-reparo-estrutura-01.mp4" type="video/mp4" />
+              Seu navegador não suporta vídeo em HTML5.
+            </video>
+          </FadeIn>
         </div>
       </section>
 

@@ -2,11 +2,11 @@ import { useSEO } from "../hooks/useSEO";
 import { PageTransition } from "../components/layout/PageTransition";
 import { Breadcrumb } from "../components/ui/Breadcrumb";
 import { SectionHeading } from "../components/ui/SectionHeading";
-import { ServiceCard } from "../components/ui/ServiceCard";
 import { CTASection } from "../components/ui/CTASection";
 import { servicosData } from "../data/servicos";
 import { FadeIn } from "../components/ui/FadeIn";
 import { Battery, BatteryCharging, Truck, Wrench, ShieldCheck, Settings } from "lucide-react";
+import { ServicesCarousel } from "../components/ui/ServicesCarousel";
 
 export function Servicos() {
   useSEO({
@@ -73,18 +73,76 @@ export function Servicos() {
 
       <section className="py-20 bg-zinc-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {servicesList.map((service, index) => (
-              <FadeIn key={index} delay={index * 0.1} direction="up">
-                <ServiceCard 
-                  title={service.title}
-                  description={service.description}
-                  link={service.link}
-                  icon={service.icon}
-                />
-              </FadeIn>
-            ))}
-          </div>
+          <FadeIn direction="up">
+            <SectionHeading
+              title="Navegue pelos serviços em formato visual"
+              subtitle="Cada serviço com contexto prático para facilitar a decisão."
+              centered
+            />
+          </FadeIn>
+          <FadeIn direction="up" delay={0.1}>
+            <ServicesCarousel
+              services={[
+                {
+                  id: "baterias-tracionarias",
+                  title: servicesList[0].title,
+                  description: servicesList[0].description,
+                  link: servicesList[0].link,
+                  icon: servicesList[0].icon,
+                  mediaType: "video",
+                  mediaSrc: "/assets/media/videos/home/home-bateria-inspecao-tecnica-03.mp4",
+                  poster: "/assets/media/posters/home-bateria-inspecao-tecnica-03.jpg",
+                },
+                {
+                  id: "baterias-de-litio",
+                  title: servicesList[1].title,
+                  description: servicesList[1].description,
+                  link: servicesList[1].link,
+                  icon: servicesList[1].icon,
+                  mediaType: "video",
+                  mediaSrc: "/assets/media/videos/home/home-bateria-analise-celulas-02.mp4",
+                  poster: "/assets/media/posters/home-bateria-analise-celulas-02.jpg",
+                },
+                {
+                  id: "empilhadeiras",
+                  title: servicesList[2].title,
+                  description: servicesList[2].description,
+                  link: servicesList[2].link,
+                  icon: servicesList[2].icon,
+                  mediaType: "image",
+                  mediaSrc: "/assets/media/images/cases/cases-operacao-empilhadeira-bateria-02.webp",
+                },
+                {
+                  id: "locacao",
+                  title: servicesList[3].title,
+                  description: servicesList[3].description,
+                  link: servicesList[3].link,
+                  icon: servicesList[3].icon,
+                  mediaType: "image",
+                  mediaSrc: "/assets/media/images/sobre/sobre-estrutura-interna-02.webp",
+                },
+                {
+                  id: "pecas",
+                  title: servicesList[4].title,
+                  description: servicesList[4].description,
+                  link: servicesList[4].link,
+                  icon: servicesList[4].icon,
+                  mediaType: "image",
+                  mediaSrc: "/assets/media/images/sobre/sobre-laboratorio-baterias-01.webp",
+                },
+                {
+                  id: "treinamentos",
+                  title: servicesList[5].title,
+                  description: servicesList[5].description,
+                  link: servicesList[5].link,
+                  icon: servicesList[5].icon,
+                  mediaType: "video",
+                  mediaSrc: "/assets/media/videos/sobre/sobre-solda-reparo-estrutura-01.mp4",
+                  poster: "/assets/media/posters/sobre-solda-reparo-estrutura-01.jpg",
+                },
+              ]}
+            />
+          </FadeIn>
         </div>
       </section>
 
