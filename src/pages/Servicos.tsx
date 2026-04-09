@@ -55,11 +55,11 @@ export function Servicos() {
 
   return (
     <PageTransition>
-      <div className="bg-zinc-900 text-white py-20">
+      <div className="bg-zinc-900 text-white py-14">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn direction="up">
-            <Breadcrumb items={[{ label: "Serviços" }]} />
-            <div className="max-w-3xl">
+            <div className="max-w-4xl mx-auto text-center">
+              <Breadcrumb items={[{ label: "Serviços" }]} />
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 {servicosData.hub.title}
               </h1>
@@ -71,11 +71,11 @@ export function Servicos() {
         </div>
       </div>
 
-      <section className="py-20 bg-zinc-50">
+      <section className="py-16 bg-zinc-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn direction="up">
             <SectionHeading
-              title="Navegue pelos serviços em formato visual"
+              title="Navegue pelos serviços"
               subtitle="Cada serviço com contexto prático para facilitar a decisão."
               centered
             />
@@ -89,9 +89,6 @@ export function Servicos() {
                   description: servicesList[0].description,
                   link: servicesList[0].link,
                   icon: servicesList[0].icon,
-                  mediaType: "video",
-                  mediaSrc: "/assets/media/videos/home/home-bateria-inspecao-tecnica-03.mp4",
-                  poster: "/assets/media/posters/home-bateria-inspecao-tecnica-03.jpg",
                 },
                 {
                   id: "baterias-de-litio",
@@ -99,9 +96,6 @@ export function Servicos() {
                   description: servicesList[1].description,
                   link: servicesList[1].link,
                   icon: servicesList[1].icon,
-                  mediaType: "video",
-                  mediaSrc: "/assets/media/videos/home/home-bateria-analise-celulas-02.mp4",
-                  poster: "/assets/media/posters/home-bateria-analise-celulas-02.jpg",
                 },
                 {
                   id: "empilhadeiras",
@@ -109,8 +103,6 @@ export function Servicos() {
                   description: servicesList[2].description,
                   link: servicesList[2].link,
                   icon: servicesList[2].icon,
-                  mediaType: "image",
-                  mediaSrc: "/assets/media/images/cases/cases-operacao-empilhadeira-bateria-02.webp",
                 },
                 {
                   id: "locacao",
@@ -118,8 +110,6 @@ export function Servicos() {
                   description: servicesList[3].description,
                   link: servicesList[3].link,
                   icon: servicesList[3].icon,
-                  mediaType: "image",
-                  mediaSrc: "/assets/media/images/sobre/sobre-estrutura-interna-02.webp",
                 },
                 {
                   id: "pecas",
@@ -127,8 +117,6 @@ export function Servicos() {
                   description: servicesList[4].description,
                   link: servicesList[4].link,
                   icon: servicesList[4].icon,
-                  mediaType: "image",
-                  mediaSrc: "/assets/media/images/sobre/sobre-laboratorio-baterias-01.webp",
                 },
                 {
                   id: "treinamentos",
@@ -136,12 +124,29 @@ export function Servicos() {
                   description: servicesList[5].description,
                   link: servicesList[5].link,
                   icon: servicesList[5].icon,
-                  mediaType: "video",
-                  mediaSrc: "/assets/media/videos/sobre/sobre-solda-reparo-estrutura-01.mp4",
-                  poster: "/assets/media/posters/sobre-solda-reparo-estrutura-01.jpg",
                 },
               ]}
             />
+          </FadeIn>
+
+          <FadeIn direction="up" delay={0.2}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
+              <div className="rounded-xl border border-zinc-200 bg-white p-5">
+                <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Etapa 1</p>
+                <p className="text-lg font-bold text-zinc-900">Diagnóstico técnico</p>
+                <p className="text-sm text-zinc-600 mt-2">Levantamento da necessidade e criticidade da operação.</p>
+              </div>
+              <div className="rounded-xl border border-zinc-200 bg-white p-5">
+                <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Etapa 2</p>
+                <p className="text-lg font-bold text-zinc-900">Plano de atendimento</p>
+                <p className="text-sm text-zinc-600 mt-2">Definição de escopo, prazo e janela de execução.</p>
+              </div>
+              <div className="rounded-xl border border-zinc-200 bg-white p-5">
+                <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Etapa 3</p>
+                <p className="text-lg font-bold text-zinc-900">Execução e acompanhamento</p>
+                <p className="text-sm text-zinc-600 mt-2">Entrega com suporte técnico e orientação pós-serviço.</p>
+              </div>
+            </div>
           </FadeIn>
         </div>
       </section>

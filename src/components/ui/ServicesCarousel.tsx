@@ -8,10 +8,9 @@ interface CarouselService {
   title: string;
   description: string;
   link: string;
-  mediaType: "image" | "video";
-  mediaSrc: string;
-  poster?: string;
   icon?: React.ReactNode;
+  mediaSrc?: string;
+  mediaAlt?: string;
 }
 
 interface ServicesCarouselProps {
@@ -39,30 +38,20 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
         >
           {safeServices.map((service) => (
             <article key={service.id} className="min-w-full">
-              <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr]">
-                <div className="h-[260px] sm:h-[340px] lg:h-[380px] bg-zinc-900">
-                  {service.mediaType === "video" ? (
-                    <video
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      poster={service.poster}
-                    >
-                      <source src={service.mediaSrc} type="video/mp4" />
-                    </video>
-                  ) : (
+              <div className={cn("min-h-[280px] sm:min-h-[320px]", service.mediaSrc ? "grid grid-cols-1 lg:grid-cols-2" : "p-6 sm:p-8 lg:p-10")}>
+                {service.mediaSrc && (
+                  <div className="h-56 sm:h-64 lg:h-72 xl:h-80 border-b border-zinc-200 lg:border-b-0 lg:border-r border-zinc-200">
                     <img
                       src={service.mediaSrc}
-                      alt={service.title}
-                      className="w-full h-full object-cover"
+                      alt={service.mediaAlt ?? service.title}
+                      className="h-full w-full object-cover object-center"
+                      style={{ objectPosition: "center center", objectFit: "cover" }}
                       loading="lazy"
                     />
-                  )}
-                </div>
-                <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+                  </div>
+                )}
+
+                <div className={cn("flex flex-col justify-between", service.mediaSrc ? "p-6 sm:p-8 lg:p-10" : "")}>
                   <div>
                     <div className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-3 py-1 text-xs font-semibold text-red-700 mb-4">
                       {service.icon}

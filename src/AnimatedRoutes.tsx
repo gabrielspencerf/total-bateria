@@ -8,7 +8,6 @@ const Home = lazy(() => import("./pages/Home").then((module) => ({ default: modu
 const Sobre = lazy(() => import("./pages/Sobre").then((module) => ({ default: module.Sobre })));
 const Servicos = lazy(() => import("./pages/Servicos").then((module) => ({ default: module.Servicos })));
 const Segmentos = lazy(() => import("./pages/Segmentos").then((module) => ({ default: module.Segmentos })));
-const Galeria = lazy(() => import("./pages/Galeria").then((module) => ({ default: module.Galeria })));
 const Diferenciais = lazy(() => import("./pages/Diferenciais").then((module) => ({ default: module.Diferenciais })));
 const Cases = lazy(() => import("./pages/Cases").then((module) => ({ default: module.Cases })));
 const Contato = lazy(() => import("./pages/Contato").then((module) => ({ default: module.Contato })));
@@ -62,8 +61,6 @@ export function AnimatedRoutes() {
               <Route path="servicos/pecas-e-acessorios" element={<Pecas />} />
               <Route path="servicos/treinamentos-e-seguranca" element={<Treinamentos />} />
               <Route path="segmentos-atendidos" element={<Segmentos />} />
-              <Route path="midia" element={<Galeria />} />
-              <Route path="galeria" element={<Galeria />} />
               <Route path="diferenciais" element={<Diferenciais />} />
               <Route path="cases-e-clientes" element={<Cases />} />
               <Route path="contato" element={<Contato />} />

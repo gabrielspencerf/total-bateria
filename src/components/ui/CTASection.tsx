@@ -21,7 +21,7 @@ export function CTASection({
 }: CTASectionProps) {
   return (
     <section className={cn(
-      "py-20",
+      "py-16",
       variant === "dark" ? "bg-zinc-900 text-white" : "bg-red-600 text-white",
       className
     )}>
