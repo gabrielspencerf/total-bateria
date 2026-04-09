@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="bg-zinc-950 text-zinc-300 pt-20 pb-10 border-t border-zinc-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-12">
           {/* Brand & Newsletter */}
           <div className="lg:col-span-4">
             <Link to="/" className="inline-block mb-6 group">

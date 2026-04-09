@@ -25,13 +25,13 @@ export function TrustBadges() {
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-16 border-y border-zinc-200">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-12 border-y border-zinc-200">
       {badges.map((badge, index) => (
         <div key={index} className="flex flex-col items-center text-center group">
-          <div className="w-20 h-20 bg-zinc-50 rounded-2xl flex items-center justify-center mb-6 text-red-600 group-hover:bg-red-600 group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg group-hover:shadow-red-600/20 group-hover:-translate-y-2">
+          <div className="w-16 h-16 bg-zinc-50 rounded-2xl flex items-center justify-center mb-4 text-red-600 group-hover:bg-red-600 group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg group-hover:shadow-red-600/20 group-hover:-translate-y-1">
             {badge.icon}
           </div>
-          <h4 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-red-600 transition-colors">{badge.title}</h4>
+          <h4 className="text-lg font-bold text-zinc-900 mb-1 group-hover:text-red-600 transition-colors">{badge.title}</h4>
           <p className="text-sm text-zinc-600 font-medium">{badge.desc}</p>
         </div>
       ))}

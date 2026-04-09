@@ -19,15 +19,15 @@ export function Contato() {
       <div className="bg-zinc-50 py-12 border-b border-zinc-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn direction="up">
-            <Breadcrumb items={[{ label: "Contato / Orçamento" }]} />
-            <div className="max-w-3xl">
+            <div className="max-w-4xl mx-auto text-center">
+              <Breadcrumb items={[{ label: "Contato / Orçamento" }]} />
               <h1 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-6">
                 {contatoData.header.title}
               </h1>
               <p className="text-xl text-zinc-600 mb-8">
                 {contatoData.header.subtitle}
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
                 {contatoData.header.bullets.map((bullet, index) => (
                   <div key={index} className="flex items-center text-zinc-800 font-medium">
                     <CheckCircle2 className="w-5 h-5 text-red-600 mr-3 flex-shrink-0" />
@@ -40,9 +40,9 @@ export function Contato() {
         </div>
       </div>
 
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-16">
+          <div className="flex flex-col lg:flex-row gap-8">
             {/* Form Column */}
             <div className="lg:w-2/3">
               <FadeIn direction="left">
@@ -53,22 +53,10 @@ export function Contato() {
             {/* Info Column */}
             <div className="lg:w-1/3 space-y-12">
               <FadeIn direction="right">
-                <div className="space-y-4">
-                  <img
-                    src="/assets/media/images/contato/contato-equipe-atendimento-01.webp"
-                    alt="Equipe de atendimento técnico da Total Bateria"
-                    className="w-full h-48 object-cover rounded-xl border border-zinc-200"
-                    loading="lazy"
-                  />
-                  <video
-                    className="w-full h-48 object-cover rounded-xl border border-zinc-200"
-                    controls
-                    preload="metadata"
-                    poster="/assets/media/posters/reels/institucional-ambiente-loop-01.jpg"
-                  >
-                    <source src="/assets/media/videos/reels/institucional-ambiente-loop-01.mp4" type="video/mp4" />
-                    Seu navegador não suporta vídeo em HTML5.
-                  </video>
+                <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-6">
+                  <p className="text-zinc-700">
+                    Fale com nosso time para avaliação técnica e orientação rápida para sua operação.
+                  </p>
                 </div>
               </FadeIn>
 
@@ -143,7 +131,7 @@ export function Contato() {
       {/* Map Section */}
       <FadeIn direction="up">
         <section className="w-full bg-zinc-100 border-y border-zinc-200">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="rounded-2xl bg-white border border-zinc-200 p-8 md:p-12 shadow-sm">
               <h2 className="text-2xl md:text-3xl font-bold text-zinc-900 mb-4">Como chegar</h2>
               <p className="text-zinc-600 mb-6">{contatoData.contactInfo.mapText}</p>

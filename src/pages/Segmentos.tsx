@@ -2,7 +2,6 @@ import { useSEO } from "../hooks/useSEO";
 import { PageTransition } from "../components/layout/PageTransition";
 import { Breadcrumb } from "../components/ui/Breadcrumb";
 import { SegmentCard } from "../components/ui/SegmentCard";
-import { CoverageSection } from "../components/ui/CoverageSection";
 import { CTASection } from "../components/ui/CTASection";
 import { segmentosData } from "../data/segmentos";
 import { FadeIn } from "../components/ui/FadeIn";
@@ -31,42 +30,35 @@ export function Segmentos() {
                   {segmentosData.header.text}
                 </p>
               </div>
-              <div className="rounded-2xl overflow-hidden border border-zinc-700 shadow-2xl">
-                <video
-                  className="w-full h-[280px] object-cover"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  poster="/assets/media/posters/reels/drone-aereo-loop-01.jpg"
-                >
-                  <source src="/assets/media/videos/reels/drone-aereo-loop-01.mp4" type="video/mp4" />
-                </video>
+              <div className="rounded-2xl border border-zinc-700 shadow-2xl bg-zinc-900 p-6">
+                <p className="font-semibold text-white mb-2">Contexto operacional</p>
+                <p className="text-zinc-300">
+                  Atendimento planejado por criticidade, tipo de operação e janela de manutenção.
+                </p>
               </div>
             </div>
           </FadeIn>
         </div>
       </div>
 
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn direction="up">
-            <div className="max-w-4xl mx-auto mb-16 text-center">
+            <div className="max-w-4xl mx-auto mb-10 text-center">
               <p className="text-xl text-zinc-700 leading-relaxed">
                 {segmentosData.intro.text}
               </p>
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {segmentosData.segments.map((segment, index) => (
               <FadeIn key={segment.id} delay={index * 0.1} direction="up">
                 <SegmentCard
                   id={segment.id}
                   title={segment.title}
-                  description={segment.text}
-                  demandas={segment.demandas}
+                  description={segment.text.split("\n\n")[0]}
+                  demandas={segment.demandas?.slice(0, 4)}
                 />
               </FadeIn>
             ))}
@@ -92,10 +84,6 @@ export function Segmentos() {
           </div>
         </div>
       </section>
-
-      <FadeIn direction="up">
-        <CoverageSection />
-      </FadeIn>
 
       <FadeIn direction="up">
         <CTASection 

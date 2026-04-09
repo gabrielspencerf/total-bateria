@@ -13,6 +13,7 @@ import { FadeIn } from "../components/ui/FadeIn";
 import { ServicesCarousel } from "../components/ui/ServicesCarousel";
 import { CoverageSection } from "../components/ui/CoverageSection";
 import { HomeSegmentsSection } from "../components/ui/HomeSegmentsSection";
+import { homeServiceMedia } from "../data/mediaRuntime";
 
 export function Home() {
   useSEO({
@@ -35,57 +36,54 @@ export function Home() {
       title: "Baterias Tracionárias",
       description: "Manutenção, reforma, venda e carregadores com suporte técnico de campo.",
       link: "/servicos/baterias-tracionarias",
-      mediaType: "video" as const,
-      mediaSrc: "/assets/media/videos/home/home-bateria-inspecao-tecnica-03.mp4",
-      poster: "/assets/media/posters/home-bateria-inspecao-tecnica-03.jpg",
       icon: serviceIcons["baterias-tracionarias"],
+      mediaSrc: homeServiceMedia["baterias-tracionarias"].mediaSrc,
+      mediaAlt: homeServiceMedia["baterias-tracionarias"].mediaAlt,
     },
     {
       id: "baterias-de-litio",
       title: "Baterias de Lítio",
       description: "Mais autonomia e recarga rápida para operações de alta exigência logística.",
       link: "/servicos/baterias-de-litio",
-      mediaType: "video" as const,
-      mediaSrc: "/assets/media/videos/home/home-bateria-analise-celulas-02.mp4",
-      poster: "/assets/media/posters/home-bateria-analise-celulas-02.jpg",
       icon: serviceIcons["baterias-de-litio"],
+      mediaSrc: homeServiceMedia["baterias-de-litio"].mediaSrc,
+      mediaAlt: homeServiceMedia["baterias-de-litio"].mediaAlt,
     },
     {
       id: "empilhadeiras",
       title: "Empilhadeiras",
       description: "Assistência, manutenção e reforma para garantir produtividade e segurança.",
       link: "/servicos/empilhadeiras",
-      mediaType: "image" as const,
-      mediaSrc: "/assets/media/images/cases/cases-operacao-empilhadeira-bateria-01.webp",
       icon: serviceIcons.empilhadeiras,
+      mediaSrc: homeServiceMedia.empilhadeiras.mediaSrc,
+      mediaAlt: homeServiceMedia.empilhadeiras.mediaAlt,
     },
     {
       id: "locacao-de-equipamentos",
       title: "Locação de Equipamentos",
       description: "Modelo flexível de locação com suporte e disponibilidade para sua operação.",
       link: "/servicos/locacao-de-equipamentos",
-      mediaType: "image" as const,
-      mediaSrc: "/assets/media/images/sobre/sobre-estrutura-interna-02.webp",
       icon: serviceIcons["locacao-de-equipamentos"],
+      mediaSrc: homeServiceMedia["locacao-de-equipamentos"].mediaSrc,
+      mediaAlt: homeServiceMedia["locacao-de-equipamentos"].mediaAlt,
     },
     {
       id: "pecas-e-acessorios",
       title: "Peças e Acessórios",
       description: "Componentes com qualidade e pronta entrega para reduzir indisponibilidade.",
       link: "/servicos/pecas-e-acessorios",
-      mediaType: "image" as const,
-      mediaSrc: "/assets/media/images/sobre/sobre-laboratorio-baterias-01.webp",
       icon: serviceIcons["pecas-e-acessorios"],
+      mediaSrc: homeServiceMedia["pecas-e-acessorios"].mediaSrc,
+      mediaAlt: homeServiceMedia["pecas-e-acessorios"].mediaAlt,
     },
     {
       id: "treinamentos-e-seguranca",
       title: "Treinamentos e Segurança",
       description: "Capacitação prática para equipe operar com segurança e melhor desempenho.",
       link: "/servicos/treinamentos-e-seguranca",
-      mediaType: "video" as const,
-      mediaSrc: "/assets/media/videos/reels/institucional-ambiente-loop-01.mp4",
-      poster: "/assets/media/posters/reels/institucional-ambiente-loop-01.jpg",
       icon: serviceIcons["treinamentos-e-seguranca"],
+      mediaSrc: homeServiceMedia["treinamentos-e-seguranca"].mediaSrc,
+      mediaAlt: homeServiceMedia["treinamentos-e-seguranca"].mediaAlt,
     },
   ];
 
@@ -96,11 +94,10 @@ export function Home() {
         subtitle={homeData.hero.subtitle}
         ctaText={homeData.hero.cta}
         badges={homeData.hero.badges}
-        backgroundImage="/assets/media/images/gallery/gallery-drone-fachada-02.webp"
       />
 
       {/* Prova rápida de autoridade */}
-      <section className="py-20 bg-zinc-50 border-b border-zinc-200">
+      <section className="py-16 bg-zinc-50 border-b border-zinc-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn direction="up">
             <div className="max-w-4xl mx-auto text-center">
@@ -108,48 +105,25 @@ export function Home() {
               <p className="text-xl text-zinc-600 leading-relaxed">{homeData.authority.text}</p>
             </div>
           </FadeIn>
-        </div>
-      </section>
-
-      <section className="py-20 bg-white border-b border-zinc-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <FadeIn direction="left">
-              <video
-                className="w-full h-full max-h-[420px] object-cover rounded-2xl border border-zinc-200 shadow-sm"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                poster="/assets/media/posters/reels/drone-aereo-loop-01.jpg"
-              >
-                <source src="/assets/media/videos/reels/drone-aereo-loop-01.mp4" type="video/mp4" />
-                Seu navegador não suporta vídeo em HTML5.
-              </video>
-            </FadeIn>
-            <FadeIn direction="right" delay={0.1}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <img
-                  src="/assets/media/images/home/home-bateria-bancada-tecnica-01.webp"
-                  alt="Bancada técnica de diagnóstico de baterias"
-                  className="w-full h-48 sm:h-56 object-cover rounded-xl border border-zinc-200"
-                  loading="lazy"
-                />
-                <img
-                  src="/assets/media/images/home/home-bateria-bancada-tecnica-02.webp"
-                  alt="Procedimento técnico em baterias tracionárias"
-                  className="w-full h-48 sm:h-56 object-cover rounded-xl border border-zinc-200"
-                  loading="lazy"
-                />
-              </div>
-            </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+            <div className="rounded-xl bg-white border border-zinc-200 p-5">
+              <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Tempo de resposta</p>
+              <p className="text-2xl font-bold text-zinc-900">Atendimento ágil</p>
+            </div>
+            <div className="rounded-xl bg-white border border-zinc-200 p-5">
+              <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Cobertura técnica</p>
+              <p className="text-2xl font-bold text-zinc-900">SP, Sul de MG e divisa RJ</p>
+            </div>
+            <div className="rounded-xl bg-white border border-zinc-200 p-5">
+              <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Estrutura</p>
+              <p className="text-2xl font-bold text-zinc-900">Sede e frota próprias</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Nossos serviços */}
-      <section className="py-24 bg-zinc-50 border-y border-zinc-200">
+      <section className="py-16 bg-zinc-50 border-y border-zinc-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn direction="up">
             <SectionHeading 
@@ -174,9 +148,9 @@ export function Home() {
       </section>
 
       {/* Diferenciais + Cases e Clientes */}
-      <section className="py-24 bg-zinc-900 text-white overflow-hidden">
+      <section className="py-16 bg-zinc-900 text-white overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 xl:grid-cols-[1.1fr_1fr] gap-12 items-start">
+          <div className="grid grid-cols-1 xl:grid-cols-[1.1fr_1fr] gap-8 items-start">
             <div>
               <FadeIn direction="left">
                 <SectionHeading 
@@ -211,18 +185,11 @@ export function Home() {
                 </FadeIn>
               ))}
               <FadeIn direction="right" delay={0.2}>
-                <div className="rounded-2xl overflow-hidden border border-zinc-700">
-                  <video
-                    className="w-full h-64 object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    poster="/assets/media/posters/reels/operacao-tecnica-loop-01.jpg"
-                  >
-                    <source src="/assets/media/videos/reels/operacao-tecnica-loop-01.mp4" type="video/mp4" />
-                  </video>
+                <div className="rounded-2xl border border-zinc-700 bg-zinc-800 p-6">
+                  <p className="font-semibold text-white mb-2">Visão operacional</p>
+                  <p className="text-sm text-zinc-300">
+                    Cases orientados por resultado, prazo e impacto direto na produtividade do cliente.
+                  </p>
                 </div>
               </FadeIn>
             </div>
@@ -235,25 +202,6 @@ export function Home() {
       <FadeIn direction="up">
         <CoverageSection />
       </FadeIn>
-
-      <section className="py-16 bg-zinc-100 border-y border-zinc-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <div className="rounded-xl bg-white border border-zinc-200 p-5">
-              <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Tempo de resposta</p>
-              <p className="text-2xl font-bold text-zinc-900">Atendimento ágil</p>
-            </div>
-            <div className="rounded-xl bg-white border border-zinc-200 p-5">
-              <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Cobertura técnica</p>
-              <p className="text-2xl font-bold text-zinc-900">SP, Sul de MG e divisa RJ</p>
-            </div>
-            <div className="rounded-xl bg-white border border-zinc-200 p-5">
-              <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Estrutura</p>
-              <p className="text-2xl font-bold text-zinc-900">Sede e frota próprias</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <FadeIn direction="up">
         <CTASection 
