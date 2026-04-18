@@ -12,6 +12,7 @@
 ## Mídia
 
 - No clone auditado, `public/` continha sobretudo **SVG** leves (`favicon`, `seo-default`, ilustrações). Imagens **WebP** referenciadas nas LPs permanecem previstas em `public/assets/landings/...` conforme `docs/refactor/media-pipeline.md`; ausência local não impede build se rotas de arquivo não forem resolvidas em SSR (assets estáticos servidos em produção).
+- A pasta **`material_estrutura/`** (insumos HEIC/MOV/MP4 brutos) e **`tmp-test.webp`** foram **removidas do versionamento** e ignoradas em `.gitignore` para não inflar o repositório remoto; o fluxo oficial de otimização permanece em `tools/convert-landing-media.ps1` e na documentação de mídia.
 
 ## Validação
 
