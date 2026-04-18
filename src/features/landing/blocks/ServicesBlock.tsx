@@ -64,7 +64,11 @@ function ServiceSlide({
   const micro = card.microDescription?.trim();
   const listCap = 6;
   const listItems = card.items.slice(0, listCap);
-  const hasImage = Boolean(card.imageSrc && card.imageAlt);
+  const visual = card.visual;
+  const hasVisual = Boolean(
+    visual ||
+      (card.imageSrc && card.imageAlt),
+  );
 
   return (
     <article
@@ -76,13 +80,46 @@ function ServiceSlide({
         <div
           className={cn(
             "relative flex min-h-[11rem] shrink-0 bg-zinc-200 lg:min-h-0",
-            hasImage ? "lg:w-[42%]" : "lg:flex lg:w-[38%] lg:items-center lg:justify-center",
+            hasVisual ? "lg:w-[42%]" : "lg:flex lg:w-[38%] lg:items-center lg:justify-center",
           )}
         >
-          {hasImage ? (
+          {visual?.format === "video" ? (
+            <>
+              <img
+                src={visual.poster}
+                alt=""
+                className="h-full w-full object-cover lg:absolute lg:inset-0"
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
+              />
+              <video
+                className={cn(
+                  "absolute inset-0 hidden h-full w-full object-cover object-center md:block motion-reduce:md:hidden",
+                )}
+                poster={visual.poster}
+                muted
+                playsInline
+                loop
+                preload="metadata"
+                autoPlay
+                aria-label={visual.alt}
+              >
+                <source src={visual.webmSrc} type="video/webm" />
+                <source src={visual.mp4Src} type="video/mp4" />
+              </video>
+            </>
+          ) : visual?.format === "image" ? (
+            <img
+              src={visual.src}
+              alt={visual.alt}
+              className="h-full w-full object-cover lg:absolute lg:inset-0"
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+            />
+          ) : card.imageSrc && card.imageAlt ? (
             <img
               src={card.imageSrc}
-              alt={card.imageAlt!}
+              alt={card.imageAlt}
               className="h-full w-full object-cover lg:absolute lg:inset-0"
               loading={index === 0 ? "eager" : "lazy"}
               decoding="async"

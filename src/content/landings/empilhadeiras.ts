@@ -148,6 +148,13 @@ export const empilhadeirasLandingConfig: LandingPageConfig = {
           "Orientação conforme necessidade da operação",
         ],
         ctaLabel: "Falar com consultor técnico",
+        visual: {
+          format: "video",
+          webmSrc: "/assets/landings/empilhadeiras/video/hero-empilhadeiras-operacao-1280.webm",
+          mp4Src: "/assets/landings/empilhadeiras/video/hero-empilhadeiras-operacao-1280.mp4",
+          poster: "/assets/landings/empilhadeiras/video/hero-empilhadeiras-operacao-poster-1280.webp",
+          alt: "Empilhadeira em operação em ambiente industrial — contexto visual para venda e indicação técnica",
+        },
       },
     ],
   },

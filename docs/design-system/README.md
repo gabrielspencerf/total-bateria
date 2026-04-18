@@ -99,7 +99,7 @@ Padrão quando omitido: `vertical`.
 
 - **Sem biblioteca externa:** trilho com **`translate3d`** e largura do viewport medida por **`ResizeObserver`** (um slide por vez, **sem “espiar”** o próximo).
 - **Controles:** faixa inferior com **setas**, contador **`01 / NN`**, **dots no mobile**, **rótulos (tabs) no `sm+`**, foco no `role="region"` + **Home/End/←/→**.
-- **Layout do slide (split):** coluna de mídia (~42% no desktop) + coluna de conteúdo; **placeholder** neutro se não houver imagem na config.
+- **Layout do slide (split):** coluna de mídia (~42% no desktop) + coluna de conteúdo. **`cards[].visual?`** (mesmo contrato do hero: imagem ou vídeo WebM+MP4+poster) tem precedência sobre `imageSrc`/`imageAlt`; no mobile o vídeo do card fica em **poster** (clip só `md+`, `prefers-reduced-motion`); **placeholder** só se não houver mídia.
 - **A11y:** `aria-live="polite"` com índice atual; `aria-label` por slide.
 - **Motion:** transição curta no trilho; **`prefers-reduced-motion: reduce`** remove a transição.
 - **Performance:** primeira imagem `eager`, demais `lazy`; altura mínima moderada no desktop para reduzir CLS.

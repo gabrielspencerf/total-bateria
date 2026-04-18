@@ -76,6 +76,11 @@ export interface LandingServiceCardConfig {
   /** Imagem opcional de apoio (prova visual / contexto operacional). */
   imageSrc?: string;
   imageAlt?: string;
+  /**
+   * Mídia opcional (imagem ou vídeo) no carrossel — **precedência** sobre `imageSrc`/`imageAlt` quando definida.
+   * Vídeo: mesmo padrão do hero (poster sempre; clip só em `md+`; respeita `prefers-reduced-motion`).
+   */
+  visual?: LandingHeroVisual;
   /** Legado: a seção de serviços usa carrossel unificado; campo ignorado no render atual. */
   architecture?: LandingServiceCardArchitecture;
 }

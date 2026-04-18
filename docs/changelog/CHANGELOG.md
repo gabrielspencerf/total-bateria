@@ -2,6 +2,11 @@
 
 ## [2026-04-18]
 
+### Serviços — vídeo opcional no card (LP empilhadeiras)
+
+- `LandingServiceCardConfig.visual?` com mesmo contrato do hero; slide **Venda de Empilhadeiras** reutiliza o vídeo/poster já existentes em `public/assets/landings/empilhadeiras/video/`.
+- Favicon: `index.html` com `sizes="any"` no `link rel="icon"` (SVG em `public/favicon.svg`).
+
 ### Páginas legais, sitemap, navegação e auditoria de links
 
 - Novas rotas: **`/politica-de-privacidade`**, **`/termos-de-uso`** (conteúdo em `src/content/legal/`), layout `LegalDocumentLayout`, lazy em `AnimatedRoutes`.
