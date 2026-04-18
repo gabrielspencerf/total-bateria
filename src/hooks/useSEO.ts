@@ -7,6 +7,8 @@ interface UseSEOProps {
   keywords?: string[];
   path?: string;
   image?: string;
+  ogTitle?: string;
+  ogDescription?: string;
   noIndex?: boolean;
 }
 
@@ -50,9 +52,11 @@ function upsertLink(rel: string, href: string) {
   link.setAttribute('href', href);
 }
 
-export function useSEO({ title, description, keywords, path, image, noIndex }: UseSEOProps) {
+export function useSEO({ title, description, keywords, path, image, ogTitle, ogDescription, noIndex }: UseSEOProps) {
   useEffect(() => {
-    const fullTitle = `${title} | ${SITE_CONFIG.name}`;
+    const fullTitle = title;
+    const fullOgTitle = ogTitle ?? title;
+    const fullOgDescription = ogDescription ?? description;
     const canonicalPath = path ?? window.location.pathname;
     const canonicalUrl = new URL(canonicalPath, SITE_CONFIG.baseUrl).toString();
     const imageUrl = new URL(image ?? SITE_CONFIG.defaultImage, SITE_CONFIG.baseUrl).toString();
@@ -67,18 +71,18 @@ export function useSEO({ title, description, keywords, path, image, noIndex }: U
       removeMetaByName('keywords');
     }
 
-    upsertMetaByProperty('og:title', fullTitle);
-    upsertMetaByProperty('og:description', description);
+    upsertMetaByProperty('og:title', fullOgTitle);
+    upsertMetaByProperty('og:description', fullOgDescription);
     upsertMetaByProperty('og:type', 'website');
     upsertMetaByProperty('og:url', canonicalUrl);
     upsertMetaByProperty('og:image', imageUrl);
     upsertMetaByProperty('og:locale', SITE_CONFIG.locale);
 
     upsertMetaByName('twitter:card', 'summary_large_image');
-    upsertMetaByName('twitter:title', fullTitle);
-    upsertMetaByName('twitter:description', description);
+    upsertMetaByName('twitter:title', fullOgTitle);
+    upsertMetaByName('twitter:description', fullOgDescription);
     upsertMetaByName('twitter:image', imageUrl);
 
     upsertLink('canonical', canonicalUrl);
-  }, [description, image, keywords, noIndex, path, title]);
+  }, [description, image, keywords, noIndex, ogDescription, ogTitle, path, title]);
 }

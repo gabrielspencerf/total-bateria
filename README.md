@@ -1,6 +1,6 @@
-# Total Bateria - Site Institucional
+# Total Bateria - Landing Page B2B
 
-Aplicacao multipage institucional com foco B2B para captacao de demanda comercial.
+Landing page (pagina unica) com foco B2B para captacao de demanda comercial.
 
 ## Stack
 

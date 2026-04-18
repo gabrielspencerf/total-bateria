@@ -1,21 +1,100 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Segoe UI", "Roboto", "Helvetica Neue", Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Montserrat", "Segoe UI", "Roboto", "Helvetica Neue", Arial, ui-sans-serif, system-ui, sans-serif;
+  --color-brand-primary: #dc2626;
+  --color-brand-dark: #09090b;
+  --color-surface-muted: #f4f4f5;
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
-    @apply bg-white text-zinc-900 antialiased;
+    @apply bg-white text-zinc-800 antialiased;
+    font-feature-settings: "liga", "kern";
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 1320px;
   }
 
   h1,
   h2,
   h3 {
     letter-spacing: -0.02em;
+  }
+
+  h1 {
+    @apply font-black leading-[1.05];
+  }
+
+  h2 {
+    @apply font-black leading-[1.1];
+  }
+
+  h3 {
+    @apply font-bold leading-[1.2];
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  section[id]:not(#hero) {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@layer components {
+  .lp-container {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .lp-card {
+    @apply rounded-2xl border border-zinc-200 bg-white shadow-sm;
+  }
+
+  .lp-card-muted {
+    @apply rounded-xl border border-zinc-200 bg-zinc-50;
+  }
+
+  .lp-badge {
+    @apply inline-flex rounded-full border border-red-600/20 bg-red-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-red-700;
+  }
+
+  /** Grade técnica muito leve — camada de profundidade sem textura bitmap. */
+  .lp-grid-faint {
+    background-image: linear-gradient(to right, rgb(24 24 27 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(24 24 27 / 0.06) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .lp-grid-faint-dark {
+    background-image: linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  /** Superfície clara com leitura de “papel técnico”, sem imagem extra. */
+  .lp-surface-tech-light {
+    background-color: #fafafa;
+    background-image: radial-gradient(120% 90% at 0% 0%, rgb(254 242 242 / 0.45), transparent 55%),
+      radial-gradient(80% 60% at 100% 100%, rgb(244 244 245), transparent 45%);
+  }
+
+  /** Superfície escura em camadas (evita bloco “tinta chapada”). */
+  .lp-surface-tech-dark {
+    background-color: #09090b;
+    background-image: radial-gradient(100% 80% at 10% 0%, rgb(127 29 29 / 0.18), transparent 50%),
+      radial-gradient(90% 70% at 100% 100%, rgb(24 24 27), transparent 55%);
   }
 }

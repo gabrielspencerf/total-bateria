@@ -1,15 +1,25 @@
-# Documentacao do Projeto
+# Documentação | Landing pages Total Bateria (`total-bateria - lp1`)
 
-Esta pasta concentra a documentacao viva do produto. Sempre que houver mudanca estrutural, funcional ou visual, os arquivos desta pasta devem ser atualizados no mesmo PR.
+## Papel deste repositório
 
-## Regras de atualizacao
+Base **content-driven** de landing pages selecionadas em build por `VITE_LANDING_KEY`. Este conjunto de docs é a **fonte de verdade** do padrão visual e técnico que o institucional (`total-bateria`) espelha.
 
-- Atualize `docs/estrutura-atual.md` quando houver alteracao de arquitetura, pastas ou padrao tecnico.
-- Atualize `docs/escopo.md` quando houver inclusao, remocao ou redefinicao de escopo funcional.
-- Atualize `docs/atualizacoes.md` com o resumo objetivo de cada mudanca relevante.
-- Registre falhas de desenvolvimento em `docs/dev-logs/error-log.md`.
-- Atualize `docs/design-system/README.md` quando mudar tokens, componentes ou diretrizes de UI.
+## Estrutura obrigatória
 
-## Objetivo
+| Pasta | Uso |
+| --- | --- |
+| `design-system/` | Tokens, princípios, mídia, motion |
+| `implementation/` | Mudanças de código explicadas |
+| `decision-log/` | Decisões com justificativa |
+| `error-logs/` | Falhas, causa, correção |
+| `releases/` | Pacotes de entrega |
+| `changelog/` | Histórico |
+| `refactor/` | Briefings e cópias de LP (legado de projeto) |
 
-Garantir independencia estrutural, previsibilidade tecnica e coerencia visual durante a evolucao do site institucional multipage.
+## Legado
+
+Histórico antigo de erros também em `docs/dev-logs/error-log.md` — preferir novas entradas em `docs/error-logs/`.
+
+## Institucional
+
+Repositório irmão: `../total-bateria` — ver `../total-bateria/docs/README.md`.

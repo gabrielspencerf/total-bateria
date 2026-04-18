@@ -1,29 +1,19 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "motion/react";
-import { Layout } from "./components/layout/Layout";
+import { SiteLayout } from "./shared/layout";
 import { RouteErrorBoundary } from "./components/layout/RouteErrorBoundary";
 
 const Home = lazy(() => import("./pages/Home").then((module) => ({ default: module.Home })));
-const Sobre = lazy(() => import("./pages/Sobre").then((module) => ({ default: module.Sobre })));
-const Servicos = lazy(() => import("./pages/Servicos").then((module) => ({ default: module.Servicos })));
-const Segmentos = lazy(() => import("./pages/Segmentos").then((module) => ({ default: module.Segmentos })));
-const Diferenciais = lazy(() => import("./pages/Diferenciais").then((module) => ({ default: module.Diferenciais })));
-const Cases = lazy(() => import("./pages/Cases").then((module) => ({ default: module.Cases })));
-const Contato = lazy(() => import("./pages/Contato").then((module) => ({ default: module.Contato })));
-const PoliticaPrivacidade = lazy(() =>
-  import("./pages/PoliticaPrivacidade").then((module) => ({ default: module.PoliticaPrivacidade })),
+const InstitutionalHomePage = lazy(() =>
+  import("./pages/institutional/InstitutionalHomePage").then((module) => ({ default: module.InstitutionalHomePage })),
 );
-const TermosUso = lazy(() => import("./pages/TermosUso").then((module) => ({ default: module.TermosUso })));
-
-const BateriasTracionarias = lazy(() =>
-  import("./pages/services/BateriasTracionarias").then((module) => ({ default: module.BateriasTracionarias })),
+const PrivacyPolicyPage = lazy(() =>
+  import("./pages/institutional/PrivacyPolicyPage").then((module) => ({ default: module.PrivacyPolicyPage })),
 );
-const BateriasLitio = lazy(() => import("./pages/services/BateriasLitio").then((module) => ({ default: module.BateriasLitio })));
-const Empilhadeiras = lazy(() => import("./pages/services/Empilhadeiras").then((module) => ({ default: module.Empilhadeiras })));
-const Locacao = lazy(() => import("./pages/services/Locacao").then((module) => ({ default: module.Locacao })));
-const Pecas = lazy(() => import("./pages/services/Pecas").then((module) => ({ default: module.Pecas })));
-const Treinamentos = lazy(() => import("./pages/services/Treinamentos").then((module) => ({ default: module.Treinamentos })));
+const TermsOfUsePage = lazy(() =>
+  import("./pages/institutional/TermsOfUsePage").then((module) => ({ default: module.TermsOfUsePage })),
+);
 
 function RouteFallback() {
   return (
@@ -50,22 +40,12 @@ export function AnimatedRoutes() {
       <RouteErrorBoundary>
         <Suspense fallback={<RouteFallback />}>
           <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Layout />}>
+            <Route path="/" element={<SiteLayout />}>
               <Route index element={<Home />} />
-              <Route path="sobre" element={<Sobre />} />
-              <Route path="servicos" element={<Servicos />} />
-              <Route path="servicos/baterias-tracionarias" element={<BateriasTracionarias />} />
-              <Route path="servicos/baterias-de-litio" element={<BateriasLitio />} />
-              <Route path="servicos/empilhadeiras" element={<Empilhadeiras />} />
-              <Route path="servicos/locacao-de-equipamentos" element={<Locacao />} />
-              <Route path="servicos/pecas-e-acessorios" element={<Pecas />} />
-              <Route path="servicos/treinamentos-e-seguranca" element={<Treinamentos />} />
-              <Route path="segmentos-atendidos" element={<Segmentos />} />
-              <Route path="diferenciais" element={<Diferenciais />} />
-              <Route path="cases-e-clientes" element={<Cases />} />
-              <Route path="contato" element={<Contato />} />
-              <Route path="politica-de-privacidade" element={<PoliticaPrivacidade />} />
-              <Route path="termos-de-uso" element={<TermosUso />} />
+              <Route path="institucional" element={<InstitutionalHomePage />} />
+              <Route path="politica-de-privacidade" element={<PrivacyPolicyPage />} />
+              <Route path="termos-de-uso" element={<TermsOfUsePage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Route>
           </Routes>
         </Suspense>

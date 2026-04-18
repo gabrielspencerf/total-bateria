@@ -1,6 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { Button } from "./Button";
+import { buildWhatsAppLink } from "../../shared/brand";
 
 interface WhatsAppButtonProps {
   number: string;
@@ -10,9 +11,7 @@ interface WhatsAppButtonProps {
 }
 
 export function WhatsAppButton({ number, text = "Falar no WhatsApp", className, floating = false }: WhatsAppButtonProps) {
-  // Format number for link (remove non-digits)
-  const formattedNumber = number.replace(/\D/g, '');
-  const link = `https://wa.me/55${formattedNumber}`;
+  const link = buildWhatsAppLink(number);
 
   if (floating) {
     return (
