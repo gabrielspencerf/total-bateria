@@ -6,3 +6,7 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Insumos brutos (HEIC/MOV/MP4 pesados) — não versionar; ver docs/refactor/media-pipeline.md
+material_estrutura/
+tmp-test.webp
