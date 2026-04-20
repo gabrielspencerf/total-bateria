@@ -42,7 +42,7 @@ function renderBlockContent(block: ServiceBlockConfig) {
   if (block.type === "chips") {
     return (
       <>
-        <h3 className="text-2xl font-bold text-zinc-900 mb-6 flex items-center">
+        <h3 className="mb-6 flex items-center text-2xl font-bold text-zinc-900">
           {Icon ? <Icon className="w-8 h-8 text-red-600 mr-4" /> : null}
           {block.title}
         </h3>
@@ -74,8 +74,8 @@ function renderBlockContent(block: ServiceBlockConfig) {
 
   return (
     <>
-      <h3 className="text-2xl font-bold text-zinc-900 mb-6 flex items-center">
-        {Icon ? <Icon className="w-8 h-8 text-red-600 mr-4" /> : null}
+      <h3 className="mb-6 flex items-center text-2xl font-bold text-zinc-900">
+        {Icon ? <Icon className="mr-4 h-8 w-8 text-red-600" /> : null}
         {block.title}
       </h3>
       <ul className={block.type === "list-plain" ? "space-y-4" : "space-y-4"}>
@@ -106,8 +106,8 @@ export function ServicePageTemplate({ config }: { config: ServicePageConfig }) {
 
   return (
     <PageTransition>
-      <div className="bg-zinc-900 text-white py-14">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-zinc-900 py-16 text-white md:py-20">
+        <div className="lp-container">
           <Breadcrumb
             items={[
               { label: "Serviços", path: "/servicos" },
@@ -115,8 +115,8 @@ export function ServicePageTemplate({ config }: { config: ServicePageConfig }) {
             ]}
           />
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{config.title}</h1>
-            <p className="text-xl text-zinc-300 mb-8">{config.subtitle}</p>
+            <h1 className="mb-6 text-4xl font-black md:text-5xl">{config.title}</h1>
+            <p className="mb-8 text-xl text-zinc-300">{config.subtitle}</p>
             <Link to="/contato">
               <Button size="lg">{config.heroButtonText}</Button>
             </Link>
@@ -124,11 +124,11 @@ export function ServicePageTemplate({ config }: { config: ServicePageConfig }) {
         </div>
       </div>
 
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-white py-16 md:py-20">
+        <div className="lp-container">
           {config.intro ? (
-            <div className="max-w-4xl mx-auto mb-10">
-              <h2 className="text-3xl font-bold text-zinc-900 mb-6 flex items-center">
+            <div className="mx-auto mb-12 max-w-4xl">
+              <h2 className="mb-6 flex items-center text-3xl font-black text-zinc-900">
                 <config.intro.icon className="w-8 h-8 text-red-600 mr-4" />
                 {config.intro.title}
               </h2>
@@ -144,7 +144,7 @@ export function ServicePageTemplate({ config }: { config: ServicePageConfig }) {
                     ? ""
                     : block.type === "chips" || block.type === "list-plain"
                       ? "space-y-8"
-                      : "bg-zinc-50 p-8 rounded-xl border border-zinc-200";
+                      : "tb-card-static space-y-6 p-8";
 
                 return (
                   <div key={`${block.title}-${rowIndex}`} className={baseClass}>

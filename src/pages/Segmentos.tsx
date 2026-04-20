@@ -15,7 +15,7 @@ export function Segmentos() {
   return (
     <PageTransition>
       <div className="bg-zinc-950 text-white py-16 border-b border-zinc-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <FadeIn direction="up">
             <Breadcrumb items={[{ label: "Segmentos Atendidos" }]} />
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-4">
@@ -42,7 +42,7 @@ export function Segmentos() {
       </div>
 
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <FadeIn direction="up">
             <div className="max-w-4xl mx-auto mb-10 text-center">
               <p className="text-xl text-zinc-700 leading-relaxed">
@@ -67,7 +67,7 @@ export function Segmentos() {
       </section>
 
       <section className="py-16 bg-zinc-50 border-y border-zinc-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="rounded-xl border border-zinc-200 bg-white p-5">
               <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Formato de atendimento</p>

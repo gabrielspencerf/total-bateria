@@ -28,7 +28,7 @@ const Treinamentos = lazy(() => import("./pages/services/Treinamentos").then((mo
 function RouteFallback() {
   return (
     <div className="w-full bg-white" aria-hidden="true">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14 animate-pulse">
+      <div className="lp-container py-10 md:py-14 animate-pulse">
         <div className="h-10 w-2/3 max-w-xl rounded-md bg-zinc-200 mb-5" />
         <div className="h-5 w-full max-w-2xl rounded-md bg-zinc-100 mb-3" />
         <div className="h-5 w-5/6 max-w-xl rounded-md bg-zinc-100 mb-10" />

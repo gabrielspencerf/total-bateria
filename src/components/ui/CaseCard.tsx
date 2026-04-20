@@ -15,9 +15,8 @@ interface CaseCardProps {
 
 export function CaseCard({ client, segment, situation, challenge, solution, results, testimonial }: CaseCardProps) {
   return (
-    <div className="bg-white rounded-2xl border border-zinc-200 shadow-sm hover:shadow-xl hover:shadow-red-600/5 transition-all duration-300 overflow-hidden flex flex-col h-full group">
-      <div className="p-6 bg-zinc-50 border-b border-zinc-200 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-bl-full -mr-16 -mt-16 transition-transform duration-500 group-hover:scale-150 opacity-50" />
+    <div className="tb-card-surface group flex h-full flex-col overflow-hidden">
+      <div className="relative border-b border-zinc-200 bg-zinc-50 p-6">
         <div className="relative z-10">
           <span className="inline-block px-3 py-1 bg-red-100 text-red-800 text-xs font-semibold rounded-full mb-3">
             {segment}
@@ -72,8 +71,7 @@ export function CaseCard({ client, segment, situation, challenge, solution, resu
       </div>
       
       {testimonial && (
-        <div className="p-6 bg-zinc-900 text-white mt-auto relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="relative mt-auto bg-zinc-900 p-6 text-white">
           <div className="relative z-10">
             <div className="flex text-yellow-400 mb-3">
               {[...Array(testimonial.rating)].map((_, i) => (

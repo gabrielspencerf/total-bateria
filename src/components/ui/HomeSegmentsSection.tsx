@@ -13,8 +13,8 @@ const segmentItems = [
 
 export function HomeSegmentsSection() {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-16 md:py-20">
+      <div className="lp-container">
         <FadeIn direction="up">
           <SectionHeading
             title="Segmentos atendidos com rotina de operação crítica"
@@ -27,7 +27,7 @@ export function HomeSegmentsSection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {segmentItems.map((item, index) => (
               <FadeIn key={item.label} delay={index * 0.05} direction="up">
-                <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-5 h-full flex items-start gap-3">
+                <div className="lp-card-muted flex h-full items-start gap-3 p-5">
                   <span className="mt-0.5 text-red-600">{item.icon}</span>
                   <p className="font-semibold text-zinc-900">{item.label}</p>
                 </div>

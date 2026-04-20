@@ -16,7 +16,7 @@ export function Sobre() {
   return (
     <PageTransition>
       <div className="bg-zinc-50 py-12 border-b border-zinc-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <FadeIn direction="up">
             <div className="max-w-4xl mx-auto text-center">
               <Breadcrumb items={[{ label: "Sobre a Empresa" }]} />
@@ -29,7 +29,7 @@ export function Sobre() {
       </div>
 
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             <FadeIn direction="left">
               <article className="h-full rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm">
@@ -100,7 +100,7 @@ export function Sobre() {
       </section>
 
       <FadeIn direction="up">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <TrustBadges />
         </div>
       </FadeIn>

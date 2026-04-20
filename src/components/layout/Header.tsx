@@ -81,25 +81,31 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        "fixed left-0 right-0 top-0 z-50 transition-[padding,background-color,box-shadow,border-color] duration-200",
         isScrolled
-          ? "bg-zinc-950/85 backdrop-blur-xl shadow-2xl shadow-black/20 border-b border-white/10 py-3"
-          : "bg-white/95 backdrop-blur-sm py-5"
+          ? "border-b border-white/10 bg-zinc-950/90 py-3 shadow-lg shadow-black/15 backdrop-blur-md"
+          : "bg-white/95 py-5 backdrop-blur-sm"
       )}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-50">
+      <div className="lp-container relative z-50">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex-shrink-0 flex items-center group" onClick={() => setMobileMenuOpen(false)}>
-            <span className="text-2xl font-black text-red-600 tracking-tighter italic group-hover:text-red-500 transition-colors">TOTAL</span>
-            <span
-              className={cn(
-                "text-2xl font-black tracking-tighter italic ml-1 transition-colors",
-                isScrolled ? "text-white group-hover:text-zinc-200" : "text-zinc-900 group-hover:text-zinc-700",
-              )}
-            >
-              BATERIA
-            </span>
+          <Link
+            to="/"
+            className={cn(
+              "flex shrink-0 items-center rounded-md transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2",
+              isScrolled ? "focus-visible:ring-offset-zinc-950" : "focus-visible:ring-offset-white",
+            )}
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Ir para a página inicial da Total Bateria"
+          >
+            <img
+              src={isScrolled ? "/assets/logos/total-bateria-branco.png" : "/assets/logos/total-bateria-colorido.png"}
+              alt="Total Bateria"
+              className="h-11 w-auto md:h-12"
+              loading="eager"
+              decoding="async"
+            />
           </Link>
 
           <DesktopNav
@@ -122,8 +128,8 @@ export function Header() {
               ref={mobileMenuButtonRef}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={cn(
-                "hover:text-red-600 focus:outline-none transition-colors p-2 -mr-2 relative z-[60]",
-                isScrolled ? "text-white" : "text-zinc-900",
+                "relative z-[60] -mr-2 rounded-lg p-2 transition-colors hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white",
+                isScrolled ? "text-white focus-visible:ring-offset-zinc-950" : "text-zinc-900",
               )}
               aria-label="Abrir menu principal"
               aria-expanded={mobileMenuOpen}

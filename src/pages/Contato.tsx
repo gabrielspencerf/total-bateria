@@ -17,7 +17,7 @@ export function Contato() {
   return (
     <PageTransition>
       <div className="bg-zinc-50 py-12 border-b border-zinc-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <FadeIn direction="up">
             <div className="max-w-4xl mx-auto text-center">
               <Breadcrumb items={[{ label: "Contato / Orçamento" }]} />
@@ -41,7 +41,7 @@ export function Contato() {
       </div>
 
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Form Column */}
             <div className="lg:w-2/3">
@@ -131,7 +131,7 @@ export function Contato() {
       {/* Map Section */}
       <FadeIn direction="up">
         <section className="w-full bg-zinc-100 border-y border-zinc-200">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="lp-container py-12">
             <div className="rounded-2xl bg-white border border-zinc-200 p-8 md:p-12 shadow-sm">
               <h2 className="text-2xl md:text-3xl font-bold text-zinc-900 mb-4">Como chegar</h2>
               <p className="text-zinc-600 mb-6">{contatoData.contactInfo.mapText}</p>

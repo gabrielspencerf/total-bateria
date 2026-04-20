@@ -11,14 +11,14 @@ export function TermosUso() {
   return (
     <PageTransition>
       <section className="bg-zinc-50 border-b border-zinc-200 py-10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <Breadcrumb items={[{ label: "Termos de Uso" }]} />
           <h1 className="text-4xl md:text-5xl font-bold text-zinc-900">Termos de Uso</h1>
         </div>
       </section>
 
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <div className="max-w-3xl space-y-6 text-zinc-700 leading-relaxed">
             <p>
               O conteúdo deste site possui finalidade informativa e comercial, com foco em soluções corporativas de

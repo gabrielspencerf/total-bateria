@@ -10,7 +10,7 @@ export function HeaderCTA({ mobile = false, onClick }: HeaderCTAProps) {
   if (mobile) {
     return (
       <Link to="/contato" className="block w-full" onClick={onClick}>
-        <Button size="lg" className="w-full shadow-xl shadow-red-600/20">
+        <Button size="lg" className="w-full">
           Solicitar Orçamento
         </Button>
       </Link>
@@ -20,7 +20,7 @@ export function HeaderCTA({ mobile = false, onClick }: HeaderCTAProps) {
   return (
     <div className="hidden lg:flex items-center">
       <Link to="/contato">
-        <Button size="sm" className="shadow-lg shadow-red-600/20">
+        <Button size="sm">
           Solicitar Orçamento
         </Button>
       </Link>

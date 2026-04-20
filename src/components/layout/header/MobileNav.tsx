@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { cn } from "../../../utils/cn";
 import { navLinks, servicesLinks } from "../../../data/navigation";
 import { HeaderCTA } from "./HeaderCTA";
@@ -24,6 +24,8 @@ export function MobileNav({
   onClose,
   onToggleServices,
 }: MobileNavProps) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <>
       <AnimatePresence>
@@ -33,7 +35,7 @@ export function MobileNav({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-zinc-950/20 backdrop-blur-sm z-40 lg:hidden"
+            className="fixed inset-0 z-40 bg-zinc-950/20 backdrop-blur-sm motion-reduce:backdrop-blur-none lg:hidden"
             onClick={onClose}
             aria-hidden="true"
           />
@@ -47,8 +49,12 @@ export function MobileNav({
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl z-50 lg:hidden flex flex-col pt-24 pb-6 px-6 overflow-y-auto"
+            transition={
+              reduceMotion
+                ? { duration: 0.2, ease: "easeOut" }
+                : { type: "spring", damping: 28, stiffness: 320 }
+            }
+            className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col overflow-y-auto bg-white px-6 pb-6 pt-24 shadow-xl lg:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Menu principal"
@@ -63,7 +69,7 @@ export function MobileNav({
                           to={link.path}
                           onClick={onClose}
                           className={cn(
-                            "text-xl font-bold transition-colors",
+                            "rounded-md text-xl font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white",
                             locationPathname.startsWith("/servicos")
                               ? "text-red-600"
                               : "text-zinc-900 hover:text-red-600",
@@ -74,7 +80,7 @@ export function MobileNav({
                         <button
                           type="button"
                           onClick={onToggleServices}
-                          className="p-2 text-zinc-500 hover:text-red-600 transition-colors"
+                          className="rounded-md p-2 text-zinc-500 transition-colors hover:text-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                           aria-label="Abrir submenu de serviços no menu mobile"
                           aria-expanded={mobileServicesOpen}
                           aria-controls={mobileServicesMenuId}
@@ -104,7 +110,7 @@ export function MobileNav({
                                   to={sublink.path}
                                   onClick={onClose}
                                   className={cn(
-                                    "block text-base transition-colors",
+                                    "block rounded-md py-1 text-base transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white",
                                     locationPathname === sublink.path
                                       ? "text-red-600 font-semibold"
                                       : "text-zinc-600 hover:text-red-600",
@@ -123,7 +129,7 @@ export function MobileNav({
                       to={link.path}
                       onClick={onClose}
                       className={cn(
-                        "block text-xl font-bold transition-colors",
+                        "block rounded-md py-1 text-xl font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white",
                         locationPathname === link.path
                           ? "text-red-600"
                           : "text-zinc-900 hover:text-red-600",

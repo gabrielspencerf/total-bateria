@@ -33,7 +33,7 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
     <div className="space-y-6">
       <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
         <div
-          className="flex transition-transform duration-500 ease-out"
+          className="flex transition-transform duration-300 ease-out motion-reduce:transition-none"
           style={{ transform: `translateX(-${active * 100}%)` }}
         >
           {safeServices.map((service) => (
@@ -57,12 +57,12 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
                       {service.icon}
                       <span className={cn(service.icon && "ml-2")}>Solução Industrial</span>
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-zinc-900 mb-4">{service.title}</h3>
+                    <h3 className="mb-4 text-2xl font-black text-zinc-900 sm:text-3xl">{service.title}</h3>
                     <p className="text-zinc-600 leading-relaxed">{service.description}</p>
                   </div>
                   <Link
                     to={service.link}
-                    className="mt-8 inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors"
+                    className="mt-8 inline-flex items-center font-semibold text-red-600 transition-colors hover:text-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2"
                   >
                     Ver detalhes do serviço
                     <ArrowRight className="w-4 h-4 ml-2" />
@@ -93,7 +93,7 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
           <button
             type="button"
             onClick={goPrev}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 hover:border-zinc-300 hover:bg-zinc-50"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 transition-colors hover:border-zinc-300 hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2"
             aria-label="Slide anterior"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -101,7 +101,7 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
           <button
             type="button"
             onClick={goNext}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 hover:border-zinc-300 hover:bg-zinc-50"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 transition-colors hover:border-zinc-300 hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2"
             aria-label="Próximo slide"
           >
             <ChevronRight className="w-5 h-5" />

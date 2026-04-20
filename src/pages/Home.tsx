@@ -97,25 +97,27 @@ export function Home() {
       />
 
       {/* Prova rápida de autoridade */}
-      <section className="py-16 bg-zinc-50 border-b border-zinc-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="border-b border-zinc-200 bg-surface-muted py-16 md:py-20">
+        <div className="lp-container">
           <FadeIn direction="up">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold text-zinc-900 mb-6">{homeData.authority.title}</h2>
-              <p className="text-xl text-zinc-600 leading-relaxed">{homeData.authority.text}</p>
-            </div>
+            <SectionHeading
+              title={homeData.authority.title}
+              subtitle={homeData.authority.text}
+              centered
+              className="[&_p]:max-w-4xl [&_p]:text-lg [&_p]:md:text-xl"
+            />
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-            <div className="rounded-xl bg-white border border-zinc-200 p-5">
-              <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Tempo de resposta</p>
+          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
+            <div className="lp-card p-5">
+              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-zinc-500">Tempo de resposta</p>
               <p className="text-2xl font-bold text-zinc-900">Atendimento ágil</p>
             </div>
-            <div className="rounded-xl bg-white border border-zinc-200 p-5">
-              <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Cobertura técnica</p>
+            <div className="lp-card p-5">
+              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-zinc-500">Cobertura técnica</p>
               <p className="text-2xl font-bold text-zinc-900">SP, Sul de MG e divisa RJ</p>
             </div>
-            <div className="rounded-xl bg-white border border-zinc-200 p-5">
-              <p className="text-xs uppercase tracking-wider text-zinc-500 mb-2">Estrutura</p>
+            <div className="lp-card p-5">
+              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-zinc-500">Estrutura</p>
               <p className="text-2xl font-bold text-zinc-900">Sede e frota próprias</p>
             </div>
           </div>
@@ -123,8 +125,8 @@ export function Home() {
       </section>
 
       {/* Nossos serviços */}
-      <section className="py-16 bg-zinc-50 border-y border-zinc-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="border-y border-zinc-200 bg-surface-muted py-16 md:py-20">
+        <div className="lp-container">
           <FadeIn direction="up">
             <SectionHeading 
               title="Nossos Serviços" 
@@ -148,8 +150,8 @@ export function Home() {
       </section>
 
       {/* Diferenciais + Cases e Clientes */}
-      <section className="py-16 bg-zinc-900 text-white overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="overflow-hidden bg-zinc-900 py-16 text-white md:py-20">
+        <div className="lp-container">
           <div className="grid grid-cols-1 xl:grid-cols-[1.1fr_1fr] gap-8 items-start">
             <div>
               <FadeIn direction="left">
@@ -185,9 +187,9 @@ export function Home() {
                 </FadeIn>
               ))}
               <FadeIn direction="right" delay={0.2}>
-                <div className="rounded-2xl border border-zinc-700 bg-zinc-800 p-6">
-                  <p className="font-semibold text-white mb-2">Visão operacional</p>
-                  <p className="text-sm text-zinc-300">
+                <div className="rounded-2xl border border-zinc-700 bg-zinc-800 p-6 shadow-sm transition-colors duration-200 hover:border-red-600/35 hover:shadow-md">
+                  <p className="mb-2 font-semibold text-white">Visão operacional</p>
+                  <p className="text-sm leading-relaxed text-zinc-300">
                     Cases orientados por resultado, prazo e impacto direto na produtividade do cliente.
                   </p>
                 </div>

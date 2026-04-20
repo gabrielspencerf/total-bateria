@@ -13,7 +13,12 @@ export function SectionHeading({ title, subtitle, centered = false, className, l
     <div className={cn("mb-8", centered && "text-center", className)}>
       <div className={cn("flex items-center mb-4", centered && "justify-center flex-col")}>
         {!centered && <div className="w-8 h-1 bg-red-600 rounded-full mr-4" />}
-        <h2 className={cn("text-3xl md:text-4xl font-bold tracking-tight", light ? "text-white" : "text-zinc-900")}>
+        <h2
+          className={cn(
+            "text-3xl font-black tracking-tight md:text-4xl",
+            light ? "text-white" : "text-zinc-900",
+          )}
+        >
           {title}
         </h2>
         {centered && <div className="w-16 h-1 bg-red-600 rounded-full mt-4" />}

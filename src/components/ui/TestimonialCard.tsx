@@ -8,11 +8,9 @@ interface TestimonialCardProps {
 
 export function TestimonialCard({ role, text, rating }: TestimonialCardProps) {
   return (
-    <div className="bg-zinc-800 p-8 rounded-2xl border border-zinc-700 shadow-sm hover:shadow-xl hover:shadow-red-600/10 transition-all duration-300 relative group overflow-hidden">
-      <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 rounded-bl-full -mr-16 -mt-16 transition-transform duration-500 group-hover:scale-150" />
-      
+    <div className="group relative rounded-2xl border border-zinc-700 bg-zinc-800 p-8 shadow-sm transition-colors duration-200 hover:border-red-600/35 hover:shadow-md">
       <div className="relative z-10">
-        <Quote className="w-10 h-10 text-red-500/20 mb-6 group-hover:text-red-500/40 transition-colors" />
+        <Quote className="mb-6 size-10 text-red-500/25 transition-colors duration-200 group-hover:text-red-500/45" />
         
         <div className="flex text-yellow-500 mb-6">
           {[...Array(rating)].map((_, i) => (

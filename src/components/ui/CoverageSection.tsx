@@ -3,7 +3,7 @@ import { MapPin, Navigation, Map, Truck, BatteryCharging } from "lucide-react";
 export function CoverageSection() {
   return (
     <section className="py-16 bg-white relative overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="lp-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
           <div>
             <div className="inline-flex items-center px-4 py-2 bg-red-50 text-red-600 rounded-full text-sm font-bold mb-6">

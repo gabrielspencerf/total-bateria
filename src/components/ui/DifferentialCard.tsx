@@ -9,11 +9,9 @@ interface DifferentialCardProps {
 
 export function DifferentialCard({ title, description, benefits, icon }: DifferentialCardProps) {
   return (
-    <div className="p-8 bg-white rounded-2xl border border-zinc-200 shadow-sm hover:shadow-xl hover:shadow-red-600/5 transition-all duration-300 group relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-bl-full -mr-16 -mt-16 transition-transform duration-500 group-hover:scale-150 opacity-50" />
-      
+    <div className="tb-card-surface group relative p-8">
       <div className="relative z-10">
-        <div className="w-12 h-12 bg-zinc-100 rounded-xl flex items-center justify-center mb-6 text-zinc-600 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300">
+        <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-100 text-zinc-600 transition-colors duration-200 group-hover:bg-red-600 group-hover:text-white">
           {icon || <Star className="w-6 h-6" />}
         </div>
         

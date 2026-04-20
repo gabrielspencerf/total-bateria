@@ -56,7 +56,7 @@ export function Servicos() {
   return (
     <PageTransition>
       <div className="bg-zinc-900 text-white py-14">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <FadeIn direction="up">
             <div className="max-w-4xl mx-auto text-center">
               <Breadcrumb items={[{ label: "Serviços" }]} />
@@ -72,7 +72,7 @@ export function Servicos() {
       </div>
 
       <section className="py-16 bg-zinc-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <FadeIn direction="up">
             <SectionHeading
               title="Navegue pelos serviços"

@@ -12,6 +12,15 @@ export const SITE_CONFIG = {
     phone: "+55 11 93331-2768",
     email: "adm@totalbateria.com.br",
   },
+  /**
+   * URLs oficiais das redes. Deixe vazio para não renderizar ícones no rodapé
+   * (evita href genérico para a home).
+   */
+  social: {
+    linkedin: "",
+    instagram: "",
+    facebook: "",
+  },
 } as const;
 
 export interface SiteRouteSeo {

@@ -21,13 +21,15 @@ export function CTASection({
 }: CTASectionProps) {
   return (
     <section className={cn(
-      "py-16",
+      "py-20 md:py-24",
       variant === "dark" ? "bg-zinc-900 text-white" : "bg-red-600 text-white",
       className
     )}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">{title}</h2>
-        <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-90">{text}</p>
+      <div className="lp-container text-center">
+        <h2 className={cn("text-3xl font-black md:text-4xl", text ? "mb-6" : "mb-10")}>{title}</h2>
+        {text ? (
+          <p className="mx-auto mb-10 max-w-2xl text-lg opacity-90 md:text-xl">{text}</p>
+        ) : null}
         <Link to={buttonLink}>
           <Button 
             size="lg" 

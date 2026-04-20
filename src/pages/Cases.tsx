@@ -17,7 +17,7 @@ export function Cases() {
   return (
     <PageTransition>
       <div className="bg-zinc-50 py-12 border-b border-zinc-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <FadeIn direction="up">
             <div className="max-w-4xl mx-auto text-center">
               <Breadcrumb items={[{ label: "Cases e Clientes" }]} />
@@ -34,7 +34,7 @@ export function Cases() {
 
       {/* Prova Social / Números */}
       <section className="py-16 bg-red-600 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {casesData.stats.map((stat, index) => (
               <FadeIn key={index} delay={index * 0.1} direction="up">
@@ -50,7 +50,7 @@ export function Cases() {
 
       {/* Cases de Sucesso */}
       <section className="py-16 bg-zinc-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <FadeIn direction="up">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-zinc-900 mb-10">
               Cases de Sucesso
@@ -77,7 +77,7 @@ export function Cases() {
 
       {/* Perfis Atendidos */}
       <section className="py-16 bg-white border-t border-zinc-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <div className="max-w-4xl mx-auto text-center">
             <FadeIn direction="up">
               <h2 className="text-3xl font-bold text-zinc-900 mb-10">Perfis de empresas atendidas</h2>
@@ -97,7 +97,7 @@ export function Cases() {
 
       {/* Depoimentos */}
       <section className="py-16 bg-zinc-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lp-container">
           <FadeIn direction="up">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-10">
               O que dizem nossos clientes

@@ -73,13 +73,13 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
-        <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+      <div className="rounded-2xl border border-green-200 bg-green-50 p-8 text-center">
+        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-green-600">
           <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-green-800 mb-2">Solicitação enviada!</h3>
+        <h3 className="mb-2 text-2xl font-black text-green-800">Solicitação enviada!</h3>
         <p className="text-green-700">
           Recebemos seus dados com sucesso. Nossa equipe comercial entrará em contato em breve.
         </p>
@@ -95,63 +95,63 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-lg border border-zinc-200 overflow-hidden">
-      <div className="p-8 bg-zinc-900 text-white">
-        <h3 className="text-2xl font-bold mb-2">{contatoData.form.title}</h3>
+    <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-md">
+      <div className="bg-zinc-900 p-8 text-white">
+        <h3 className="mb-2 text-2xl font-black">{contatoData.form.title}</h3>
         <p className="text-zinc-400">{contatoData.form.subtitle}</p>
       </div>
       
       <form onSubmit={handleSubmit} className="p-8 space-y-6">
         {submitError && (
-          <div role="alert" className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          <div role="alert" className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
             {submitError}
           </div>
         )}
 
         <div className="space-y-4">
-          <h4 className="text-lg font-semibold text-zinc-900 border-b pb-2">Informações da empresa</h4>
+          <h4 className="border-b border-zinc-200 pb-2 text-lg font-bold text-zinc-900">Informações da empresa</h4>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <label htmlFor="empresa" className="block text-sm font-medium text-zinc-700 mb-1">Nome da empresa *</label>
-              <input type="text" id="empresa" name="empresa" required className="w-full px-4 py-2 border border-zinc-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all" />
+              <label htmlFor="empresa" className="tb-form-label">Nome da empresa *</label>
+              <input type="text" id="empresa" name="empresa" required disabled={isSubmitting} className="tb-form-field" />
             </div>
             <div>
-              <label htmlFor="cnpj" className="block text-sm font-medium text-zinc-700 mb-1">CNPJ</label>
-              <input type="text" id="cnpj" name="cnpj" className="w-full px-4 py-2 border border-zinc-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all" />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="nome" className="block text-sm font-medium text-zinc-700 mb-1">Nome do responsável *</label>
-              <input type="text" id="nome" name="nome" required className="w-full px-4 py-2 border border-zinc-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all" />
-            </div>
-            <div>
-              <label htmlFor="cargo" className="block text-sm font-medium text-zinc-700 mb-1">Cargo</label>
-              <input type="text" id="cargo" name="cargo" placeholder="Ex: Compras, Manutenção..." className="w-full px-4 py-2 border border-zinc-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all" />
+              <label htmlFor="cnpj" className="tb-form-label">CNPJ</label>
+              <input type="text" id="cnpj" name="cnpj" disabled={isSubmitting} className="tb-form-field" />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-zinc-700 mb-1">E-mail corporativo *</label>
-              <input type="email" id="email" name="email" required className="w-full px-4 py-2 border border-zinc-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all" />
+              <label htmlFor="nome" className="tb-form-label">Nome do responsável *</label>
+              <input type="text" id="nome" name="nome" required disabled={isSubmitting} className="tb-form-field" />
             </div>
             <div>
-              <label htmlFor="whatsapp" className="block text-sm font-medium text-zinc-700 mb-1">WhatsApp *</label>
-              <input type="tel" id="whatsapp" name="whatsapp" required className="w-full px-4 py-2 border border-zinc-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all" />
+              <label htmlFor="cargo" className="tb-form-label">Cargo</label>
+              <input type="text" id="cargo" name="cargo" placeholder="Ex: Compras, Manutenção..." disabled={isSubmitting} className="tb-form-field" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div>
+              <label htmlFor="email" className="tb-form-label">E-mail corporativo *</label>
+              <input type="email" id="email" name="email" required disabled={isSubmitting} className="tb-form-field" />
+            </div>
+            <div>
+              <label htmlFor="whatsapp" className="tb-form-label">WhatsApp *</label>
+              <input type="tel" id="whatsapp" name="whatsapp" required disabled={isSubmitting} className="tb-form-field" />
             </div>
           </div>
         </div>
 
         <div className="space-y-4 pt-4">
-          <h4 className="text-lg font-semibold text-zinc-900 border-b pb-2">Sobre a necessidade</h4>
+          <h4 className="border-b border-zinc-200 pb-2 text-lg font-bold text-zinc-900">Sobre a necessidade</h4>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <label htmlFor="servico" className="block text-sm font-medium text-zinc-700 mb-1">Tipo de serviço *</label>
-              <select id="servico" name="servico" required className="w-full px-4 py-2 border border-zinc-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all bg-white">
+              <label htmlFor="servico" className="tb-form-label">Tipo de serviço *</label>
+              <select id="servico" name="servico" required disabled={isSubmitting} className="tb-form-field bg-white">
                 <option value="">Selecione...</option>
                 {contatoData.form.serviceOptions.map(opt => (
                   <option key={opt} value={opt}>{opt}</option>
@@ -159,8 +159,8 @@ export function ContactForm() {
               </select>
             </div>
             <div>
-              <label htmlFor="urgencia" className="block text-sm font-medium text-zinc-700 mb-1">Urgência</label>
-              <select id="urgencia" name="urgencia" className="w-full px-4 py-2 border border-zinc-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all bg-white">
+              <label htmlFor="urgencia" className="tb-form-label">Urgência</label>
+              <select id="urgencia" name="urgencia" disabled={isSubmitting} className="tb-form-field bg-white">
                 <option value="">Selecione...</option>
                 {contatoData.form.urgencyOptions.map(opt => (
                   <option key={opt} value={opt}>{opt}</option>
@@ -169,24 +169,24 @@ export function ContactForm() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             <div>
-              <label htmlFor="quantidade" className="block text-sm font-medium text-zinc-700 mb-1">Qtd. equipamentos</label>
-              <input type="number" id="quantidade" name="quantidade" min="1" className="w-full px-4 py-2 border border-zinc-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all" />
+              <label htmlFor="quantidade" className="tb-form-label">Qtd. equipamentos</label>
+              <input type="number" id="quantidade" name="quantidade" min="1" disabled={isSubmitting} className="tb-form-field" />
             </div>
             <div>
-              <label htmlFor="marca" className="block text-sm font-medium text-zinc-700 mb-1">Marca/modelo</label>
-              <input type="text" id="marca" name="marca" className="w-full px-4 py-2 border border-zinc-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all" />
+              <label htmlFor="marca" className="tb-form-label">Marca/modelo</label>
+              <input type="text" id="marca" name="marca" disabled={isSubmitting} className="tb-form-field" />
             </div>
             <div>
-              <label htmlFor="cidade" className="block text-sm font-medium text-zinc-700 mb-1">Cidade/UF *</label>
-              <input type="text" id="cidade" name="cidade" required className="w-full px-4 py-2 border border-zinc-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all" />
+              <label htmlFor="cidade" className="tb-form-label">Cidade/UF *</label>
+              <input type="text" id="cidade" name="cidade" required disabled={isSubmitting} className="tb-form-field" />
             </div>
           </div>
 
           <div>
-            <label htmlFor="mensagem" className="block text-sm font-medium text-zinc-700 mb-1">Descreva sua necessidade ou problema</label>
-            <textarea id="mensagem" name="mensagem" rows={4} className="w-full px-4 py-2 border border-zinc-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all resize-none"></textarea>
+            <label htmlFor="mensagem" className="tb-form-label">Descreva sua necessidade ou problema</label>
+            <textarea id="mensagem" name="mensagem" rows={4} disabled={isSubmitting} className="tb-form-field min-h-[8rem] resize-y" />
           </div>
         </div>
 

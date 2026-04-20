@@ -50,12 +50,12 @@ export function DesktopNav({
             <Link
               to={link.path}
               className={cn(
-                "relative text-sm font-semibold hover:text-red-600 transition-colors py-2 group",
+                "group relative rounded-md py-2 text-sm font-semibold transition-colors hover:text-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2",
                 locationPathname === link.path
                   ? "text-red-600"
                   : isScrolled
-                    ? "text-zinc-200"
-                    : "text-zinc-700",
+                    ? "text-zinc-200 focus-visible:ring-offset-zinc-950"
+                    : "text-zinc-700 focus-visible:ring-offset-white",
               )}
             >
               {link.name}

@@ -1,15 +1,25 @@
 export const runtimeMediaPolicy = {
   allowedImageFormats: [".webp", ".jpg", ".jpeg", ".png"] as const,
-  allowedVideoFormats: [".mp4"] as const,
+  allowedVideoFormats: [".webm", ".mp4"] as const,
   imageQualityTarget: "webp com boa nitidez para conteúdo principal",
-  videoCodecTarget: "H.264/AAC em MP4 para máxima compatibilidade",
+  videoCodecTarget: "VP9/Opus em WebM quando disponível; H.264/AAC em MP4 como fallback",
 } as const;
 
+/** Vídeos legados listados para produção; o hero carrega apenas o primeiro (performance + LCP). */
 export const heroBackgroundVideos = [
   "/assets/media/videos/reels/institucional-ambiente-loop-01.mp4",
   "/assets/media/videos/reels/drone-aereo-loop-01.mp4",
   "/assets/media/videos/reels/operacao-tecnica-loop-01.mp4",
 ] as const;
+
+/** Único MP4 de fundo do hero institucional (sem carrossel). */
+export const heroBackgroundVideoPrimary = heroBackgroundVideos[0];
+
+/**
+ * WebM opcional (mesmo loop que o MP4, menor bitrate típico).
+ * Coloque o arquivo em `public/` e defina o path aqui. `null` = sem asset versionado neste repo.
+ */
+export const heroBackgroundVideoWebmPrimary: string | null = null;
 
 export const homeServiceMedia = {
   "baterias-tracionarias": {

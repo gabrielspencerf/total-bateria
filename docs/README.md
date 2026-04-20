@@ -1,15 +1,27 @@
-# Documentacao do Projeto
+# Documentação | Total Bateria (institucional)
 
-Esta pasta concentra a documentacao viva do produto. Sempre que houver mudanca estrutural, funcional ou visual, os arquivos desta pasta devem ser atualizados no mesmo PR.
+## Propósito
 
-## Regras de atualizacao
+Este diretório concentra **design system**, **implementação**, **decisões**, **erros/resoluções**, **releases** e **changelog** do site institucional, alinhado ao ecossistema das landing pages (`total-bateria - lp1`).
 
-- Atualize `docs/estrutura-atual.md` quando houver alteracao de arquitetura, pastas ou padrao tecnico.
-- Atualize `docs/escopo.md` quando houver inclusao, remocao ou redefinicao de escopo funcional.
-- Atualize `docs/atualizacoes.md` com o resumo objetivo de cada mudanca relevante.
-- Registre falhas de desenvolvimento em `docs/dev-logs/error-log.md`.
-- Atualize `docs/design-system/README.md` quando mudar tokens, componentes ou diretrizes de UI.
+## Estrutura
 
-## Objetivo
+| Pasta | Conteúdo |
+| --- | --- |
+| `design-system/` | Princípios visuais, tokens, componentes, mídia, motion |
+| `implementation/` | O que foi implementado no código e por quê |
+| `decision-log/` | Decisões com justificativa curta |
+| `error-logs/` | Problema → causa → solução → status |
+| `releases/` | Pacotes de entrega com escopo e riscos |
+| `changelog/` | Histórico consolidado |
 
-Garantir independencia estrutural, previsibilidade tecnica e coerencia visual durante a evolucao do site institucional multipage.
+## Regras de atualização
+
+1. Toda mudança visual ou de UX relevante deve ter entrada em `implementation/` ou `releases/`.
+2. Regressões e bugs corrigidos: `error-logs/`.
+3. Decisões que afetam marca ou performance: `decision-log/`.
+4. Não duplicar romance: texto técnico, direto, rastreável a arquivos.
+
+## Referência cruzada
+
+Landing pages (build separado): repositório `total-bateria - lp1` — mesma linguagem visual documentada em ambos os `design-system/`.

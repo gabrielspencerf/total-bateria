@@ -1,21 +1,135 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Segoe UI", "Roboto", "Helvetica Neue", Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Montserrat", "Segoe UI", "Roboto", "Helvetica Neue", Arial, ui-sans-serif, system-ui, sans-serif;
+  --color-brand-primary: #dc2626;
+  --color-brand-dark: #09090b;
+  --color-surface-muted: #f4f4f5;
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
-    @apply bg-white text-zinc-900 antialiased;
+    @apply bg-white text-zinc-800 antialiased;
+    font-feature-settings: "liga", "kern";
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 1320px;
   }
 
   h1,
   h2,
   h3 {
     letter-spacing: -0.02em;
+  }
+
+  h1 {
+    @apply font-black leading-[1.05];
+  }
+
+  h2 {
+    @apply font-black leading-[1.1];
+  }
+
+  h3 {
+    @apply font-bold leading-[1.2];
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  section[id]:not(#hero) {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@layer components {
+  .lp-container {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .lp-card {
+    @apply rounded-2xl border border-zinc-200 bg-white shadow-sm;
+  }
+
+  .lp-card-muted {
+    @apply rounded-xl border border-zinc-200 bg-zinc-50;
+  }
+
+  .lp-badge {
+    @apply inline-flex rounded-full border border-red-600/20 bg-red-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-red-700;
+  }
+
+  .lp-grid-faint {
+    background-image:
+      linear-gradient(to right, rgb(24 24 27 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(24 24 27 / 0.06) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .lp-grid-faint-dark {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .lp-surface-tech-light {
+    background-color: #fafafa;
+    background-image:
+      radial-gradient(120% 90% at 0% 0%, rgb(254 242 242 / 0.45), transparent 55%),
+      radial-gradient(80% 60% at 100% 100%, rgb(244 244 245), transparent 45%);
+  }
+
+  .lp-surface-tech-dark {
+    background-color: #09090b;
+    background-image:
+      radial-gradient(100% 80% at 10% 0%, rgb(127 29 29 / 0.18), transparent 50%),
+      radial-gradient(90% 70% at 100% 100%, rgb(24 24 27), transparent 55%);
+  }
+
+  .tb-form-label {
+    @apply mb-1.5 block text-sm font-medium text-zinc-700;
+  }
+
+  .tb-form-field {
+    @apply w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition-colors;
+    @apply focus-visible:border-red-600 focus-visible:ring-2 focus-visible:ring-red-600/25;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .tb-form-field-dark {
+    @apply w-full rounded-xl border border-zinc-700 bg-zinc-950 px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-zinc-500;
+    @apply focus-visible:border-red-500 focus-visible:ring-2 focus-visible:ring-red-600/30;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .tb-card-surface {
+    @apply rounded-2xl border border-zinc-200 bg-white shadow-sm transition-colors duration-200;
+    @apply hover:border-red-600/35 hover:shadow-md;
+  }
+
+  .tb-card-static {
+    @apply rounded-2xl border border-zinc-200 bg-white shadow-sm;
+  }
+
+  .tb-footer-link {
+    @apply flex items-center rounded-sm text-zinc-400 transition-colors hover:text-red-500;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950;
+  }
+
+  .tb-brand-footer {
+    @apply inline-block rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950;
   }
 }

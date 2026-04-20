@@ -32,7 +32,7 @@ export class RouteErrorBoundary extends Component<RouteErrorBoundaryProps, Route
 
     return (
       <div className="min-h-[50vh] w-full bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+        <div className="lp-container py-16 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-zinc-900 mb-4">Não foi possível carregar esta página</h2>
           <p className="text-zinc-600 mb-8">
             Ocorreu uma falha temporária no carregamento. Atualize para tentar novamente.
