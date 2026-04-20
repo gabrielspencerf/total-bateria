@@ -1,4 +1,8 @@
-import { runtimeConfig } from "../../config/runtime";
-import { landingRegistry } from "./landings";
+import type { LandingPageConfig } from "../features/landing/types";
+import { selectedLandingConfig } from "virtual:selected-landing-config";
 
-export const selectedLandingConfig = landingRegistry[runtimeConfig.landingKey];
+export { selectedLandingConfig };
+
+export function loadSelectedLandingConfig(): Promise<LandingPageConfig> {
+  return Promise.resolve(selectedLandingConfig);
+}

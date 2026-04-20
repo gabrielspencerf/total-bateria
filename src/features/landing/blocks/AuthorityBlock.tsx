@@ -1,5 +1,5 @@
 import type { LandingAuthorityConfig } from "../types";
-import { Reveal, Section } from "../../../shared/ui";
+import { LandingMediaImage, Reveal, Section } from "../../../shared/ui";
 import { SectionHeader } from "./SectionHeader";
 
 interface AuthorityBlockProps {
@@ -27,7 +27,7 @@ export function AuthorityBlock({ data }: AuthorityBlockProps) {
                 </div>
               </div>
               <div className="relative min-h-[280px] border-t border-zinc-200 bg-zinc-100 lg:min-h-[360px] lg:border-l lg:border-t-0">
-                <img
+                <LandingMediaImage
                   src={data.figure.src}
                   alt={data.figure.alt}
                   className="absolute inset-0 h-full w-full object-cover"

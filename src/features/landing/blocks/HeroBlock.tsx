@@ -1,7 +1,8 @@
 import { CheckCircle2 } from "lucide-react";
 import type { LandingCallToAction, LandingHeroConfig } from "../types";
-import { Button, uiTokens } from "../../../shared/ui";
+import { Button, LandingMediaImage, uiTokens } from "../../../shared/ui";
 import { cn } from "../../../utils/cn";
+import { resolvePublicUrl } from "../../../utils/publicAsset";
 
 interface HeroBlockProps {
   data: LandingHeroConfig;
@@ -21,20 +22,20 @@ export function HeroBlock({ data, primaryCta, secondaryCta }: HeroBlockProps) {
     >
       <div className="absolute inset-0 z-0">
         {visual.format === "image" ? (
-          <img
+          <LandingMediaImage
             src={visual.src}
             alt={visual.alt}
-            className="h-full w-full object-cover object-center"
+            className="h-full min-h-[min(100dvh,900px)] w-full object-cover object-center"
             loading="eager"
             decoding="async"
             fetchPriority="high"
           />
         ) : (
           <>
-            <img
+            <LandingMediaImage
               src={visual.poster}
               alt=""
-              className="h-full w-full object-cover object-center"
+              className="h-full min-h-[min(100dvh,900px)] w-full object-cover object-center"
               decoding="async"
               fetchPriority="high"
             />
@@ -43,7 +44,7 @@ export function HeroBlock({ data, primaryCta, secondaryCta }: HeroBlockProps) {
                 "absolute inset-0 h-full w-full object-cover object-center",
                 "hidden md:block motion-reduce:md:hidden",
               )}
-              poster={visual.poster}
+              poster={resolvePublicUrl(visual.poster)}
               muted
               playsInline
               loop
@@ -51,8 +52,8 @@ export function HeroBlock({ data, primaryCta, secondaryCta }: HeroBlockProps) {
               autoPlay
               aria-hidden
             >
-              <source src={visual.webmSrc} type="video/webm" />
-              <source src={visual.mp4Src} type="video/mp4" />
+              <source src={resolvePublicUrl(visual.webmSrc)} type="video/webm" />
+              <source src={resolvePublicUrl(visual.mp4Src)} type="video/mp4" />
             </video>
           </>
         )}

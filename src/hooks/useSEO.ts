@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { SITE_CONFIG } from '@/config/site';
+import { absolutePublicAssetUrl } from '@/src/utils/publicAsset';
 
 interface UseSEOProps {
   title: string;
@@ -59,7 +60,8 @@ export function useSEO({ title, description, keywords, path, image, ogTitle, ogD
     const fullOgDescription = ogDescription ?? description;
     const canonicalPath = path ?? window.location.pathname;
     const canonicalUrl = new URL(canonicalPath, SITE_CONFIG.baseUrl).toString();
-    const imageUrl = new URL(image ?? SITE_CONFIG.defaultImage, SITE_CONFIG.baseUrl).toString();
+    const imagePath = image ?? SITE_CONFIG.defaultImage;
+    const imageUrl = absolutePublicAssetUrl(SITE_CONFIG.baseUrl, imagePath);
 
     document.title = fullTitle;
     upsertMetaByName('description', description);

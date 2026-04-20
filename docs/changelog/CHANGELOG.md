@@ -2,6 +2,13 @@
 
 ## [2026-04-18]
 
+### Pipeline de mídia pública (`BASE_URL`, fallback, verificação ampliada)
+
+- **Causa:** assets ausentes em `public/` e/ou URLs sem prefixo de `import.meta.env.BASE_URL` em deploy em subpasta; logos em `/assets/brand/` inexistentes no repositório; card de serviço sem imagem na LP lítio.
+- **Correção:** `resolvePublicUrl` / `absolutePublicAssetUrl` (`src/utils/publicAsset.ts`), `LandingMediaImage` (`src/shared/ui`), integração em hero/serviços/autoridade/benefícios/widgets e logos; `useSEO` para OG image; `BrowserRouter basename` + `VITE_BASE_PATH` no Vite.
+- **Build:** `tools/verify-public-assets.mjs` valida landings + brand + `defaultImage` em `config/site.ts`.
+- **Docs:** implementation, decision-log, error-log e release dedicados a este tema.
+
 ### Serviços — vídeo opcional no card (LP empilhadeiras)
 
 - `LandingServiceCardConfig.visual?` com mesmo contrato do hero; slide **Venda de Empilhadeiras** reutiliza o vídeo/poster já existentes em `public/assets/landings/empilhadeiras/video/`.

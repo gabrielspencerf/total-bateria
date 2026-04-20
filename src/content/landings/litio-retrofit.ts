@@ -163,6 +163,8 @@ export const litioRetrofitLandingConfig: LandingPageConfig = {
           "Suporte na entrada em produção",
         ],
         ctaLabel: "Falar com especialista",
+        imageSrc: "/assets/landings/shared/shared-equipamentos-industriais-01-1600.webp",
+        imageAlt: "Equipamentos em operação — contexto para validação e aceite técnico no piso",
       },
     ],
   },

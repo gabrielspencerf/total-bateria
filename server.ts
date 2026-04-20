@@ -2,9 +2,14 @@ import express from "express";
 import { createServer as createViteServer } from "vite";
 import path from "path";
 import fs from "fs";
-import { SITE_CONFIG, SITE_ROUTES } from "./config/site";
+import { runtimeConfig } from "./config/runtime";
+import { SITE_CONFIG, buildSiteRoutes } from "./config/site";
+import { landingLoaders } from "./src/content/landings";
 
 async function startServer() {
+  const landingConfig = await landingLoaders[runtimeConfig.landingKey]();
+  const siteRoutes = buildSiteRoutes(landingConfig);
+
   const app = express();
   const PORT = Number(process.env.PORT) || 3000;
   const modeArg = process.argv.find((arg) => arg.startsWith("--mode="));
@@ -22,7 +27,7 @@ async function startServer() {
   });
 
   app.get("/sitemap.xml", (_req, res) => {
-    const urls = SITE_ROUTES.map((route) => {
+    const urls = siteRoutes.map((route) => {
       return [
         "<url>",
         `<loc>${new URL(route.path, SITE_CONFIG.baseUrl).toString()}</loc>`,

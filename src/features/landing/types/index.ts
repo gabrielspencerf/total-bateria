@@ -9,6 +9,10 @@ export interface LandingSeoConfig {
   canonicalPath: string;
 }
 
+/**
+ * Mídia do hero: paths lógicos em `public/` (ex.: `/assets/landings/...`).
+ * Na UI usar `resolvePublicUrl` / `LandingMediaImage`.
+ */
 export type LandingHeroVisual =
   | { format: "image"; src: string; alt: string }
   | {

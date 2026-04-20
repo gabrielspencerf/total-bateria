@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { BRAND_ASSETS, BRAND_IDENTITY, buildWhatsAppLink } from "../brand";
-import { uiTokens } from "../ui";
+import { LandingMediaImage, uiTokens } from "../ui";
 import { cn } from "../../utils/cn";
 
 const headerPrimaryCtaClass =
@@ -35,8 +35,9 @@ export function SiteHeader() {
         <div className="flex h-14 items-center justify-between gap-3 sm:h-16 sm:gap-4">
           <div className="flex min-w-0 flex-1 items-center gap-4 sm:gap-6">
             <a href="/" className="inline-flex shrink-0 items-center" aria-label={BRAND_IDENTITY.companyName}>
-              <img
+              <LandingMediaImage
                 src={heroLanding ? BRAND_ASSETS.logos.white : BRAND_ASSETS.logos.color}
+                fallbackSrc={BRAND_ASSETS.seoDefault}
                 alt=""
                 className="h-9 w-auto sm:h-10"
               />

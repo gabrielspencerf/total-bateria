@@ -2,6 +2,10 @@
 
 ## 2026-04-18
 
+### Pipeline de mídia pública (correção)
+
+- `resolvePublicUrl` / `LandingMediaImage` / `verify-public-assets.mjs`; logos em `public/assets/brand/`; `BrowserRouter basename` + `VITE_BASE_PATH`. Detalhes em `docs/releases/RELEASE-2026-04-18-media-pipeline.md`.
+
 ### Ecossistema institucional + LP + documentação
 
 - Institucional (`../total-bateria`): tema Montserrat/tokens, botão alinhado à LP, hero com **um** vídeo (sem carrossel), `SectionHeading` com `font-black`, docs em `/docs` (README, design-system, implementation, error-logs, decision-log, releases, changelog).

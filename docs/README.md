@@ -9,7 +9,7 @@ Base **content-driven** de landing pages selecionadas em build por `VITE_LANDING
 | Pasta | Uso |
 | --- | --- |
 | `design-system/` | Tokens, princípios, mídia, motion |
-| `implementation/` | Mudanças de código explicadas |
+| `implementation/` | Mudanças de código explicadas (ex.: `LP-2026-04-18-media-pipeline-public-assets.md`) |
 | `decision-log/` | Decisões com justificativa |
 | `error-logs/` | Falhas, causa, correção |
 | `releases/` | Pacotes de entrega |

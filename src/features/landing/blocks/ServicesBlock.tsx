@@ -1,7 +1,8 @@
 import { ChevronLeft, ChevronRight, Factory, ImageOff, Truck, Wrench } from "lucide-react";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent } from "react";
 import type { LandingCallToAction, LandingPageConfig, LandingServiceCardConfig } from "../types";
-import { Button, Reveal, Section } from "../../../shared/ui";
+import { Button, LandingMediaImage, Reveal, Section } from "../../../shared/ui";
+import { resolvePublicUrl } from "../../../utils/publicAsset";
 import { SectionHeader } from "./SectionHeader";
 import { cn } from "../../../utils/cn";
 
@@ -85,10 +86,10 @@ function ServiceSlide({
         >
           {visual?.format === "video" ? (
             <>
-              <img
+              <LandingMediaImage
                 src={visual.poster}
                 alt=""
-                className="h-full w-full object-cover lg:absolute lg:inset-0"
+                className="h-full min-h-[11rem] w-full object-cover lg:absolute lg:inset-0 lg:min-h-0"
                 loading={index === 0 ? "eager" : "lazy"}
                 decoding="async"
               />
@@ -96,7 +97,7 @@ function ServiceSlide({
                 className={cn(
                   "absolute inset-0 hidden h-full w-full object-cover object-center md:block motion-reduce:md:hidden",
                 )}
-                poster={visual.poster}
+                poster={resolvePublicUrl(visual.poster)}
                 muted
                 playsInline
                 loop
@@ -104,23 +105,23 @@ function ServiceSlide({
                 autoPlay
                 aria-label={visual.alt}
               >
-                <source src={visual.webmSrc} type="video/webm" />
-                <source src={visual.mp4Src} type="video/mp4" />
+                <source src={resolvePublicUrl(visual.webmSrc)} type="video/webm" />
+                <source src={resolvePublicUrl(visual.mp4Src)} type="video/mp4" />
               </video>
             </>
           ) : visual?.format === "image" ? (
-            <img
+            <LandingMediaImage
               src={visual.src}
               alt={visual.alt}
-              className="h-full w-full object-cover lg:absolute lg:inset-0"
+              className="h-full min-h-[11rem] w-full object-cover lg:absolute lg:inset-0 lg:min-h-0"
               loading={index === 0 ? "eager" : "lazy"}
               decoding="async"
             />
           ) : card.imageSrc && card.imageAlt ? (
-            <img
+            <LandingMediaImage
               src={card.imageSrc}
               alt={card.imageAlt}
-              className="h-full w-full object-cover lg:absolute lg:inset-0"
+              className="h-full min-h-[11rem] w-full object-cover lg:absolute lg:inset-0 lg:min-h-0"
               loading={index === 0 ? "eager" : "lazy"}
               decoding="async"
             />
@@ -151,8 +152,8 @@ function ServiceSlide({
             ) : null}
           </div>
 
-          <div className="grid flex-1 grid-cols-1 gap-6 p-5 sm:p-6 md:grid-cols-[minmax(0,1fr)_minmax(0,220px)] md:p-8 md:pt-6">
-            <ul className="space-y-2 text-sm text-zinc-800 sm:text-[0.9375rem]">
+          <div className="grid flex-1 grid-cols-1 gap-6 p-5 sm:p-6 md:grid-cols-[minmax(0,1fr)_minmax(0,17rem)] md:p-8 md:pt-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,18.5rem)]">
+            <ul className="min-w-0 space-y-2 text-sm text-zinc-800 sm:text-[0.9375rem]">
               {listItems.map((item) => (
                 <li key={item} className="flex gap-2.5 leading-snug">
                   <span className="mt-2 size-1.5 shrink-0 rounded-full bg-red-600" aria-hidden />
@@ -164,7 +165,7 @@ function ServiceSlide({
               ) : null}
             </ul>
 
-            <div className="flex flex-col gap-4 border-t border-dashed border-zinc-200 pt-5 md:border-l md:border-t-0 md:pl-6 md:pt-0">
+            <div className="flex min-w-0 flex-col gap-4 border-t border-dashed border-zinc-200 pt-5 md:border-l md:border-t-0 md:pl-6 md:pt-0">
               {restHighlights.length > 0 ? (
                 <ul className="rounded-xl border border-zinc-200 bg-white p-4 text-sm text-zinc-700">
                   {restHighlights.map((h) => (
@@ -175,8 +176,16 @@ function ServiceSlide({
                   ))}
                 </ul>
               ) : null}
-              <a href={defaultCta.href} target="_blank" rel="noopener noreferrer" className="w-full md:w-fit">
-                <Button variant={defaultCta.variant} className="w-full sm:w-auto">
+              <a
+                href={defaultCta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full min-w-0 shrink-0"
+              >
+                <Button
+                  variant={defaultCta.variant}
+                  className="h-auto min-h-12 w-full min-w-0 justify-center px-4 py-3 text-center text-sm leading-snug whitespace-normal sm:px-5 sm:text-base"
+                >
                   {ctaLabel}
                 </Button>
               </a>

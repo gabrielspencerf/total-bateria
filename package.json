@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts --mode=development",
-    "build": "vite build",
+    "verify:assets": "node ./tools/verify-public-assets.mjs",
+    "build": "npm run verify:assets && vite build",
     "start": "npm run build && tsx server.ts --mode=production",
     "start:server": "tsx server.ts --mode=production",
     "preview": "vite preview",

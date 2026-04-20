@@ -1,6 +1,4 @@
-const LANDING_KEYS = ["empilhadeiras", "baterias", "litio-retrofit"] as const;
-
-export type LandingKey = (typeof LANDING_KEYS)[number];
+import { LANDING_KEYS, type LandingKey } from "./landing-keys";
 
 function readEnv(key: string): string | undefined {
   const importMetaEnv =
@@ -61,4 +59,5 @@ export const runtimeConfig = {
   regionLabel: readEnv("VITE_REGION_LABEL"),
 } as const;
 
+export type { LandingKey };
 export const allowedLandingKeys = LANDING_KEYS;

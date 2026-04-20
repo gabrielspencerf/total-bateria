@@ -1,6 +1,6 @@
 import { ArrowRight, ImageIcon } from "lucide-react";
 import type { LandingPostServiceWidget } from "../types";
-import { Reveal, Section } from "../../../shared/ui";
+import { LandingMediaImage, Reveal, Section } from "../../../shared/ui";
 
 interface PostServiceWidgetsBlockProps {
   widgets: LandingPostServiceWidget[];
@@ -68,7 +68,13 @@ export function PostServiceWidgetsBlock({ widgets }: PostServiceWidgetsBlockProp
                 className="overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm sm:grid sm:grid-cols-[minmax(0,1fr)_220px] sm:items-stretch"
               >
                 <div className="relative min-h-[200px] bg-zinc-100 sm:min-h-[220px]">
-                  <img src={w.src} alt={w.alt} className="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+                  <LandingMediaImage
+                    src={w.src}
+                    alt={w.alt}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className="absolute left-3 top-3 rounded bg-zinc-950/85 px-2 py-1 text-xs font-semibold uppercase tracking-wide text-white">
                     <span className="inline-flex items-center gap-1">
                       <ImageIcon className="size-3.5" aria-hidden />

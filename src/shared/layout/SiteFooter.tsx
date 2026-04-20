@@ -2,6 +2,7 @@ import { MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { runtimeConfig } from "../../../config/runtime";
 import { BRAND_ASSETS, BRAND_CONTACT, BRAND_IDENTITY, buildWhatsAppLink } from "../brand";
+import { LandingMediaImage } from "../ui";
 import { uiTokens } from "../ui";
 
 export function SiteFooter() {
@@ -14,7 +15,12 @@ export function SiteFooter() {
         <div className="grid gap-10 border-b border-zinc-200/90 pb-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:items-start lg:gap-14 lg:pb-12">
           <div className="max-w-xl lg:max-w-none">
             <div className="mb-5 flex flex-wrap items-center gap-3">
-              <img src={BRAND_ASSETS.logos.black} alt={BRAND_IDENTITY.companyName} className="h-9 w-auto sm:h-10" />
+              <LandingMediaImage
+                src={BRAND_ASSETS.logos.black}
+                fallbackSrc={BRAND_ASSETS.seoDefault}
+                alt={BRAND_IDENTITY.companyName}
+                className="h-9 w-auto sm:h-10"
+              />
               <span className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">{BRAND_IDENTITY.companyName}</span>
             </div>
             <p className="text-base font-medium leading-relaxed text-zinc-800">{BRAND_IDENTITY.businessTagline}</p>

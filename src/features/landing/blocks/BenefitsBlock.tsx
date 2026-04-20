@@ -1,6 +1,6 @@
 import { Zap } from "lucide-react";
 import type { LandingBenefitsConfig } from "../types";
-import { Reveal, Section } from "../../../shared/ui";
+import { LandingMediaImage, Reveal, Section } from "../../../shared/ui";
 import { SectionHeader } from "./SectionHeader";
 
 interface BenefitsBlockProps {
@@ -14,7 +14,7 @@ export function BenefitsBlock({ data }: BenefitsBlockProps) {
       <Reveal>
         {data.figure ? (
           <div className="mb-10 overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 shadow-sm">
-            <img
+            <LandingMediaImage
               src={data.figure.src}
               alt={data.figure.alt}
               className="max-h-72 w-full object-cover object-center sm:max-h-80"
